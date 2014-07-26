@@ -1,5 +1,9 @@
 ﻿Public Class ClipboardSaver
 
+    Private Sub ClipboardSaver_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtSaveLocation.Text = My.Settings.LastDir
+    End Sub
+
     Private Sub btnStartStop_Click(sender As Object, e As EventArgs) Handles btnStartStop.Click
         If btnStartStop.Text = "Enable Timer" Then
             btnStartStop.Text = "Disable Timer"
@@ -43,7 +47,15 @@
         Application.Exit()
     End Sub
 
-    Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
+    Private Sub txtSaveLocation_TextChanged(sender As Object, e As EventArgs) Handles txtSaveLocation.TextChanged
+        My.Settings.LastDir = txtSaveLocation.Text
+    End Sub
 
+    Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
+        If Clipboard.ContainsImage = True Then
+            Clipboard.GetImage()
+            'save image into folder
+            Clipboard.Clear()
+        End If
     End Sub
 End Class

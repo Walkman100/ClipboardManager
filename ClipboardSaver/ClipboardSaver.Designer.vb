@@ -95,13 +95,12 @@ Partial Class ClipboardSaver
         Me.NotificationIcon.ContextMenuStrip = Me.NotificationContextMenu
         Me.NotificationIcon.Icon = CType(resources.GetObject("NotificationIcon.Icon"), System.Drawing.Icon)
         Me.NotificationIcon.Text = "Clipboard Image Saver"
-        Me.NotificationIcon.Visible = True
         '
         'NotificationContextMenu
         '
         Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuShow, Me.NotificationContextMenuBrowse, Me.NotificationContextMenuStartStop, Me.NotificationContextMenuEnd})
         Me.NotificationContextMenu.Name = "NotificationContextMenu"
-        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 114)
+        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 92)
         '
         'NotificationContextMenuShow
         '
