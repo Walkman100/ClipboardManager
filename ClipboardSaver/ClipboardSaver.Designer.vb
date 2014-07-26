@@ -22,11 +22,14 @@ Partial Class ClipboardSaver
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtSaveLocation = New System.Windows.Forms.TextBox()
         Me.btnBrowse = New System.Windows.Forms.Button()
         Me.btnStartStop = New System.Windows.Forms.Button()
         Me.btnHide = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
+        Me.NotificationIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.SuspendLayout()
         '
         'txtSaveLocation
@@ -35,13 +38,13 @@ Partial Class ClipboardSaver
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSaveLocation.Location = New System.Drawing.Point(12, 12)
         Me.txtSaveLocation.Name = "txtSaveLocation"
-        Me.txtSaveLocation.Size = New System.Drawing.Size(523, 20)
+        Me.txtSaveLocation.Size = New System.Drawing.Size(190, 20)
         Me.txtSaveLocation.TabIndex = 0
         '
         'btnBrowse
         '
         Me.btnBrowse.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBrowse.Location = New System.Drawing.Point(541, 10)
+        Me.btnBrowse.Location = New System.Drawing.Point(208, 10)
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.Size = New System.Drawing.Size(75, 23)
         Me.btnBrowse.TabIndex = 1
@@ -61,7 +64,7 @@ Partial Class ClipboardSaver
         'btnHide
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHide.Location = New System.Drawing.Point(460, 39)
+        Me.btnHide.Location = New System.Drawing.Point(127, 39)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(75, 23)
         Me.btnHide.TabIndex = 3
@@ -71,18 +74,27 @@ Partial Class ClipboardSaver
         'btnEnd
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEnd.Location = New System.Drawing.Point(541, 39)
+        Me.btnEnd.Location = New System.Drawing.Point(208, 39)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(75, 23)
         Me.btnEnd.TabIndex = 4
         Me.btnEnd.Text = "Close"
         Me.btnEnd.UseVisualStyleBackColor = True
         '
+        'NotificationIcon
+        '
+        Me.NotificationIcon.Text = "Clipboard Image Saver"
+        Me.NotificationIcon.Visible = True
+        '
+        'FolderBrowserDialog
+        '
+        Me.FolderBrowserDialog.Description = "Select a folder to save images to:"
+        '
         'ClipboardSaver
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(628, 74)
+        Me.ClientSize = New System.Drawing.Size(295, 74)
         Me.Controls.Add(Me.btnEnd)
         Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.btnStartStop)
@@ -99,5 +111,7 @@ Partial Class ClipboardSaver
     Friend WithEvents btnStartStop As System.Windows.Forms.Button
     Friend WithEvents btnHide As System.Windows.Forms.Button
     Friend WithEvents btnEnd As System.Windows.Forms.Button
+    Friend WithEvents NotificationIcon As System.Windows.Forms.NotifyIcon
+    Friend WithEvents FolderBrowserDialog As System.Windows.Forms.FolderBrowserDialog
 
 End Class

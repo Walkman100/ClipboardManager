@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ClipboardSaver")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ClipboardSaver")> 
-<Assembly: AssemblyCopyright("Copyright ©  2014")> 
+<Assembly: AssemblyTitle("Clipboard Image Saver")> 
+<Assembly: AssemblyDescription("Clipboard Image Saver")> 
+<Assembly: AssemblyCompany("DeavmiOSS")> 
+<Assembly: AssemblyProduct("Clipboard Image Saver")> 
+<Assembly: AssemblyCopyright("FOSS From Walkman 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
