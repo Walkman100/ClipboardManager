@@ -33,6 +33,10 @@
         txtSaveLocation.Text = FolderBrowserDialog.SelectedPath
     End Sub
 
+    Private Sub OpenFolder(sender As Object, e As EventArgs) Handles btnOpen.Click
+        Process.Start(txtSaveLocation.Text)
+    End Sub
+
     Private Sub HideClipboardSaver(sender As Object, e As EventArgs) Handles btnHide.Click
         Me.Hide()
         NotificationIcon.Visible = True
@@ -54,7 +58,9 @@
     Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsImage = True Then
             ScreenCapture = Clipboard.GetImage
-            ScreenCapture.Save(DateTime.Now.Year & "." & DateTime.Now.Month & "." & DateTime.Now.Day & "_" & DateTime.Now.Hour & "." & DateTime.Now.Minute & "." & DateTime.Now.Second & "." & DateTime.Now.Millisecond & ".png")
+            ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
+                               txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
+                               txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
             Clipboard.Clear()
         End If
     End Sub
