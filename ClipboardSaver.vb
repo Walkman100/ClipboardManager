@@ -1,5 +1,5 @@
 ﻿Public Class ClipboardSaver
-
+    Dim ScreenCapture As System.Drawing.Image
     Private Sub ClipboardSaver_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtSaveLocation.Text = My.Settings.LastDir
     End Sub
@@ -53,8 +53,8 @@
 
     Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsImage = True Then
-            Clipboard.GetImage()
-            'save image into folder
+            ScreenCapture = Clipboard.GetImage
+            ScreenCapture.Save(DateTime.Now.Year & "." & DateTime.Now.Month & "." & DateTime.Now.Day & "_" & DateTime.Now.Hour & "." & DateTime.Now.Minute & "." & DateTime.Now.Second & "." & DateTime.Now.Millisecond & ".png")
             Clipboard.Clear()
         End If
     End Sub
