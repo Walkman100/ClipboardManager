@@ -1,6 +1,4 @@
-Clipboard Image Saver [![Build status](https://ci.appveyor.com/api/projects/status/q9yganl3qres4cl1)](https://ci.appveyor.com/project/Walkman100/clipboardsaver)
+Clipboard Projects
 ==============
 
-This is a simple VB.Net program that saves any images that are set into the clipboard to a specified file. To be merged into [Deavmi/Clippy](/Deavmi/Clippy).
-
-The main usage for this program is when you press the <kbd>Print Screen</kbd> button. Windows copies the screen to the clipboard as an image, but it doesn't save it to a file. On Windows 8 you can press <kbd>Ctrl</kbd> + <kbd>Print Screen</kbd>, but if you wanted to do that in Windows 7 and possibly Windows XP/Vista you might have to use this program. Plus, this program gives flexibility of where to save the images and what they are named, whereas on Windows 8 they are saved with a default timestamp format into the pictures library.
+This is a collection of VB.Net programs that work with the clipboard. Later to be merged into [Deavmi/Clippy](/Deavmi/Clippy).
