@@ -6,25 +6,25 @@
     End Sub
 
     Private Sub btnStartStop_Click(sender As Object, e As EventArgs) Handles btnStartStop.Click
-        If btnStartStop.Text = "Enable Timer" Then
-            btnStartStop.Text = "Disable Timer"
-            NotificationContextMenuStartStop.Text = "Stop Timer"
+        If btnStartStop.Text = "Start Checking for Images" Then
+            btnStartStop.Text = "Stop Checking for Images"
+            NotificationContextMenuStartStop.Text = "Stop Checking for Images"
             TimerClipboardChecker.Start()
         Else
-            btnStartStop.Text = "Enable Timer"
-            NotificationContextMenuStartStop.Text = "Start Timer"
+            btnStartStop.Text = "Start Checking for Images"
+            NotificationContextMenuStartStop.Text = "Start Checking for Images"
             TimerClipboardChecker.Stop()
         End If
     End Sub
 
     Private Sub NotificationContextMenuStartStop_Click(sender As Object, e As EventArgs) Handles NotificationContextMenuStartStop.Click
-        If NotificationContextMenuStartStop.Text = "Start Timer" Then
-            btnStartStop.Text = "Disable Timer"
-            NotificationContextMenuStartStop.Text = "Stop Timer"
+        If NotificationContextMenuStartStop.Text = "Start Checking for Images" Then
+            btnStartStop.Text = "Stop Checking for Images"
+            NotificationContextMenuStartStop.Text = "Stop Checking for Images"
             TimerClipboardChecker.Start()
         Else
-            btnStartStop.Text = "Enable Timer"
-            NotificationContextMenuStartStop.Text = "Start Timer"
+            btnStartStop.Text = "Start Checking for Images"
+            NotificationContextMenuStartStop.Text = "Start Checking for Images"
             TimerClipboardChecker.Stop()
         End If
     End Sub

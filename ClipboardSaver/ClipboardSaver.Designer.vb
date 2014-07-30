@@ -31,9 +31,12 @@ Partial Class ClipboardSaver
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.NotificationIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.NotificationContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.NotificationContextMenuShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationContextMenuBrowse = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificationContextMenuOpen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificationContextMenu1 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotificationContextMenuStartStop = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificationContextMenu2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotificationContextMenuShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationContextMenuEnd = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
@@ -53,9 +56,6 @@ Partial Class ClipboardSaver
         Me.txtDateTimeDelimiter = New System.Windows.Forms.TextBox()
         Me.txtDateDelimiter2 = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
-        Me.NotificationContextMenuOpen = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificationContextMenu1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotificationContextMenu2 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
         Me.SuspendLayout()
@@ -87,7 +87,7 @@ Partial Class ClipboardSaver
         Me.btnStartStop.Name = "btnStartStop"
         Me.btnStartStop.Size = New System.Drawing.Size(180, 23)
         Me.btnStartStop.TabIndex = 3
-        Me.btnStartStop.Text = "Enable Timer"
+        Me.btnStartStop.Text = "Start Checking for Images"
         Me.btnStartStop.UseVisualStyleBackColor = True
         '
         'btnHide
@@ -123,23 +123,39 @@ Partial Class ClipboardSaver
         Me.NotificationContextMenu.Name = "NotificationContextMenu"
         Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 148)
         '
-        'NotificationContextMenuShow
-        '
-        Me.NotificationContextMenuShow.Name = "NotificationContextMenuShow"
-        Me.NotificationContextMenuShow.Size = New System.Drawing.Size(255, 22)
-        Me.NotificationContextMenuShow.Text = "Show Clipboard Image Saver"
-        '
         'NotificationContextMenuBrowse
         '
         Me.NotificationContextMenuBrowse.Name = "NotificationContextMenuBrowse"
         Me.NotificationContextMenuBrowse.Size = New System.Drawing.Size(255, 22)
         Me.NotificationContextMenuBrowse.Text = "Change Screenshot Directory..."
         '
+        'NotificationContextMenuOpen
+        '
+        Me.NotificationContextMenuOpen.Name = "NotificationContextMenuOpen"
+        Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuOpen.Text = "Open screenshot folder"
+        '
+        'NotificationContextMenu1
+        '
+        Me.NotificationContextMenu1.Name = "NotificationContextMenu1"
+        Me.NotificationContextMenu1.Size = New System.Drawing.Size(252, 6)
+        '
         'NotificationContextMenuStartStop
         '
         Me.NotificationContextMenuStartStop.Name = "NotificationContextMenuStartStop"
         Me.NotificationContextMenuStartStop.Size = New System.Drawing.Size(255, 22)
-        Me.NotificationContextMenuStartStop.Text = "Start Timer"
+        Me.NotificationContextMenuStartStop.Text = "Start Checking for Images"
+        '
+        'NotificationContextMenu2
+        '
+        Me.NotificationContextMenu2.Name = "NotificationContextMenu2"
+        Me.NotificationContextMenu2.Size = New System.Drawing.Size(252, 6)
+        '
+        'NotificationContextMenuShow
+        '
+        Me.NotificationContextMenuShow.Name = "NotificationContextMenuShow"
+        Me.NotificationContextMenuShow.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuShow.Text = "Show Clipboard Image Saver"
         '
         'NotificationContextMenuEnd
         '
@@ -315,22 +331,6 @@ Partial Class ClipboardSaver
         Me.lblDay.Size = New System.Drawing.Size(26, 13)
         Me.lblDay.TabIndex = 11
         Me.lblDay.Text = "Day"
-        '
-        'NotificationContextMenuOpen
-        '
-        Me.NotificationContextMenuOpen.Name = "NotificationContextMenuOpen"
-        Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(255, 22)
-        Me.NotificationContextMenuOpen.Text = "Open screenshot folder"
-        '
-        'NotificationContextMenu1
-        '
-        Me.NotificationContextMenu1.Name = "NotificationContextMenu1"
-        Me.NotificationContextMenu1.Size = New System.Drawing.Size(252, 6)
-        '
-        'NotificationContextMenu2
-        '
-        Me.NotificationContextMenu2.Name = "NotificationContextMenu2"
-        Me.NotificationContextMenu2.Size = New System.Drawing.Size(252, 6)
         '
         'ClipboardSaver
         '
