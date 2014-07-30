@@ -42,17 +42,20 @@ Partial Class ClipboardSaver
         Me.lblYear = New System.Windows.Forms.Label()
         Me.lblMonth = New System.Windows.Forms.Label()
         Me.grpNameFormat = New System.Windows.Forms.GroupBox()
+        Me.txtExtension = New System.Windows.Forms.TextBox()
+        Me.lblMillisecond = New System.Windows.Forms.Label()
+        Me.txtTimeDelimiter3 = New System.Windows.Forms.TextBox()
+        Me.lblSecond = New System.Windows.Forms.Label()
+        Me.txtTimeDelimiter2 = New System.Windows.Forms.TextBox()
+        Me.lblMinute = New System.Windows.Forms.Label()
+        Me.txtTimeDelimiter1 = New System.Windows.Forms.TextBox()
+        Me.lblHour = New System.Windows.Forms.Label()
+        Me.txtDateTimeDelimiter = New System.Windows.Forms.TextBox()
         Me.txtDateDelimiter2 = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
-        Me.txtDateTimeDelimiter = New System.Windows.Forms.TextBox()
-        Me.lblHour = New System.Windows.Forms.Label()
-        Me.txtTimeDelimiter1 = New System.Windows.Forms.TextBox()
-        Me.lblMinute = New System.Windows.Forms.Label()
-        Me.txtTimeDelimiter2 = New System.Windows.Forms.TextBox()
-        Me.lblSecond = New System.Windows.Forms.Label()
-        Me.txtTimeDelimiter3 = New System.Windows.Forms.TextBox()
-        Me.lblMillisecond = New System.Windows.Forms.Label()
-        Me.txtExtension = New System.Windows.Forms.TextBox()
+        Me.NotificationContextMenuOpen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificationContextMenu1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotificationContextMenu2 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
         Me.SuspendLayout()
@@ -116,9 +119,9 @@ Partial Class ClipboardSaver
         '
         'NotificationContextMenu
         '
-        Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuShow, Me.NotificationContextMenuBrowse, Me.NotificationContextMenuStartStop, Me.NotificationContextMenuEnd})
+        Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuBrowse, Me.NotificationContextMenuOpen, Me.NotificationContextMenu1, Me.NotificationContextMenuStartStop, Me.NotificationContextMenu2, Me.NotificationContextMenuShow, Me.NotificationContextMenuEnd})
         Me.NotificationContextMenu.Name = "NotificationContextMenu"
-        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 92)
+        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 148)
         '
         'NotificationContextMenuShow
         '
@@ -212,6 +215,89 @@ Partial Class ClipboardSaver
         Me.grpNameFormat.TabStop = False
         Me.grpNameFormat.Text = "File name format"
         '
+        'txtExtension
+        '
+        Me.txtExtension.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtExtension.Location = New System.Drawing.Point(468, 19)
+        Me.txtExtension.MaxLength = 6
+        Me.txtExtension.Name = "txtExtension"
+        Me.txtExtension.Size = New System.Drawing.Size(30, 20)
+        Me.txtExtension.TabIndex = 20
+        Me.txtExtension.Text = ".png"
+        '
+        'lblMillisecond
+        '
+        Me.lblMillisecond.AutoSize = True
+        Me.lblMillisecond.Location = New System.Drawing.Point(403, 22)
+        Me.lblMillisecond.Name = "lblMillisecond"
+        Me.lblMillisecond.Size = New System.Drawing.Size(59, 13)
+        Me.lblMillisecond.TabIndex = 19
+        Me.lblMillisecond.Text = "Millisecond"
+        '
+        'txtTimeDelimiter3
+        '
+        Me.txtTimeDelimiter3.Location = New System.Drawing.Point(377, 19)
+        Me.txtTimeDelimiter3.MaxLength = 2
+        Me.txtTimeDelimiter3.Name = "txtTimeDelimiter3"
+        Me.txtTimeDelimiter3.Size = New System.Drawing.Size(20, 20)
+        Me.txtTimeDelimiter3.TabIndex = 18
+        Me.txtTimeDelimiter3.Text = "."
+        '
+        'lblSecond
+        '
+        Me.lblSecond.AutoSize = True
+        Me.lblSecond.Location = New System.Drawing.Point(327, 22)
+        Me.lblSecond.Name = "lblSecond"
+        Me.lblSecond.Size = New System.Drawing.Size(44, 13)
+        Me.lblSecond.TabIndex = 17
+        Me.lblSecond.Text = "Second"
+        '
+        'txtTimeDelimiter2
+        '
+        Me.txtTimeDelimiter2.Location = New System.Drawing.Point(301, 19)
+        Me.txtTimeDelimiter2.MaxLength = 2
+        Me.txtTimeDelimiter2.Name = "txtTimeDelimiter2"
+        Me.txtTimeDelimiter2.Size = New System.Drawing.Size(20, 20)
+        Me.txtTimeDelimiter2.TabIndex = 16
+        Me.txtTimeDelimiter2.Text = "."
+        '
+        'lblMinute
+        '
+        Me.lblMinute.AutoSize = True
+        Me.lblMinute.Location = New System.Drawing.Point(256, 22)
+        Me.lblMinute.Name = "lblMinute"
+        Me.lblMinute.Size = New System.Drawing.Size(39, 13)
+        Me.lblMinute.TabIndex = 15
+        Me.lblMinute.Text = "Minute"
+        '
+        'txtTimeDelimiter1
+        '
+        Me.txtTimeDelimiter1.Location = New System.Drawing.Point(230, 19)
+        Me.txtTimeDelimiter1.MaxLength = 2
+        Me.txtTimeDelimiter1.Name = "txtTimeDelimiter1"
+        Me.txtTimeDelimiter1.Size = New System.Drawing.Size(20, 20)
+        Me.txtTimeDelimiter1.TabIndex = 14
+        Me.txtTimeDelimiter1.Text = "."
+        '
+        'lblHour
+        '
+        Me.lblHour.AutoSize = True
+        Me.lblHour.Location = New System.Drawing.Point(194, 22)
+        Me.lblHour.Name = "lblHour"
+        Me.lblHour.Size = New System.Drawing.Size(30, 13)
+        Me.lblHour.TabIndex = 13
+        Me.lblHour.Text = "Hour"
+        '
+        'txtDateTimeDelimiter
+        '
+        Me.txtDateTimeDelimiter.Location = New System.Drawing.Point(168, 19)
+        Me.txtDateTimeDelimiter.MaxLength = 2
+        Me.txtDateTimeDelimiter.Name = "txtDateTimeDelimiter"
+        Me.txtDateTimeDelimiter.Size = New System.Drawing.Size(20, 20)
+        Me.txtDateTimeDelimiter.TabIndex = 12
+        Me.txtDateTimeDelimiter.Text = "_"
+        '
         'txtDateDelimiter2
         '
         Me.txtDateDelimiter2.Location = New System.Drawing.Point(110, 19)
@@ -230,88 +316,21 @@ Partial Class ClipboardSaver
         Me.lblDay.TabIndex = 11
         Me.lblDay.Text = "Day"
         '
-        'txtDateTimeDelimiter
+        'NotificationContextMenuOpen
         '
-        Me.txtDateTimeDelimiter.Location = New System.Drawing.Point(168, 19)
-        Me.txtDateTimeDelimiter.MaxLength = 2
-        Me.txtDateTimeDelimiter.Name = "txtDateTimeDelimiter"
-        Me.txtDateTimeDelimiter.Size = New System.Drawing.Size(20, 20)
-        Me.txtDateTimeDelimiter.TabIndex = 12
-        Me.txtDateTimeDelimiter.Text = "_"
+        Me.NotificationContextMenuOpen.Name = "NotificationContextMenuOpen"
+        Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuOpen.Text = "Open screenshot folder"
         '
-        'lblHour
+        'NotificationContextMenu1
         '
-        Me.lblHour.AutoSize = True
-        Me.lblHour.Location = New System.Drawing.Point(194, 22)
-        Me.lblHour.Name = "lblHour"
-        Me.lblHour.Size = New System.Drawing.Size(30, 13)
-        Me.lblHour.TabIndex = 13
-        Me.lblHour.Text = "Hour"
+        Me.NotificationContextMenu1.Name = "NotificationContextMenu1"
+        Me.NotificationContextMenu1.Size = New System.Drawing.Size(252, 6)
         '
-        'txtTimeDelimiter1
+        'NotificationContextMenu2
         '
-        Me.txtTimeDelimiter1.Location = New System.Drawing.Point(230, 19)
-        Me.txtTimeDelimiter1.MaxLength = 2
-        Me.txtTimeDelimiter1.Name = "txtTimeDelimiter1"
-        Me.txtTimeDelimiter1.Size = New System.Drawing.Size(20, 20)
-        Me.txtTimeDelimiter1.TabIndex = 14
-        Me.txtTimeDelimiter1.Text = "."
-        '
-        'lblMinute
-        '
-        Me.lblMinute.AutoSize = True
-        Me.lblMinute.Location = New System.Drawing.Point(256, 22)
-        Me.lblMinute.Name = "lblMinute"
-        Me.lblMinute.Size = New System.Drawing.Size(39, 13)
-        Me.lblMinute.TabIndex = 15
-        Me.lblMinute.Text = "Minute"
-        '
-        'txtTimeDelimiter2
-        '
-        Me.txtTimeDelimiter2.Location = New System.Drawing.Point(301, 19)
-        Me.txtTimeDelimiter2.MaxLength = 2
-        Me.txtTimeDelimiter2.Name = "txtTimeDelimiter2"
-        Me.txtTimeDelimiter2.Size = New System.Drawing.Size(20, 20)
-        Me.txtTimeDelimiter2.TabIndex = 16
-        Me.txtTimeDelimiter2.Text = "."
-        '
-        'lblSecond
-        '
-        Me.lblSecond.AutoSize = True
-        Me.lblSecond.Location = New System.Drawing.Point(327, 22)
-        Me.lblSecond.Name = "lblSecond"
-        Me.lblSecond.Size = New System.Drawing.Size(44, 13)
-        Me.lblSecond.TabIndex = 17
-        Me.lblSecond.Text = "Second"
-        '
-        'txtTimeDelimiter3
-        '
-        Me.txtTimeDelimiter3.Location = New System.Drawing.Point(377, 19)
-        Me.txtTimeDelimiter3.MaxLength = 2
-        Me.txtTimeDelimiter3.Name = "txtTimeDelimiter3"
-        Me.txtTimeDelimiter3.Size = New System.Drawing.Size(20, 20)
-        Me.txtTimeDelimiter3.TabIndex = 18
-        Me.txtTimeDelimiter3.Text = "."
-        '
-        'lblMillisecond
-        '
-        Me.lblMillisecond.AutoSize = True
-        Me.lblMillisecond.Location = New System.Drawing.Point(403, 22)
-        Me.lblMillisecond.Name = "lblMillisecond"
-        Me.lblMillisecond.Size = New System.Drawing.Size(59, 13)
-        Me.lblMillisecond.TabIndex = 19
-        Me.lblMillisecond.Text = "Millisecond"
-        '
-        'txtExtension
-        '
-        Me.txtExtension.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtExtension.Location = New System.Drawing.Point(468, 19)
-        Me.txtExtension.MaxLength = 6
-        Me.txtExtension.Name = "txtExtension"
-        Me.txtExtension.Size = New System.Drawing.Size(30, 20)
-        Me.txtExtension.TabIndex = 20
-        Me.txtExtension.Text = ".png"
+        Me.NotificationContextMenu2.Name = "NotificationContextMenu2"
+        Me.NotificationContextMenu2.Size = New System.Drawing.Size(252, 6)
         '
         'ClipboardSaver
         '
@@ -368,5 +387,8 @@ Partial Class ClipboardSaver
     Friend WithEvents lblSecond As System.Windows.Forms.Label
     Friend WithEvents txtTimeDelimiter2 As System.Windows.Forms.TextBox
     Friend WithEvents txtExtension As System.Windows.Forms.TextBox
+    Friend WithEvents NotificationContextMenuOpen As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NotificationContextMenu1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents NotificationContextMenu2 As System.Windows.Forms.ToolStripSeparator
 
 End Class

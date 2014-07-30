@@ -1,5 +1,6 @@
 ﻿Public Class ClipboardSaver
     Dim ScreenCapture As System.Drawing.Image
+
     Private Sub ClipboardSaver_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtSaveLocation.Text = My.Settings.LastDir
     End Sub
@@ -33,7 +34,7 @@
         txtSaveLocation.Text = FolderBrowserDialog.SelectedPath
     End Sub
 
-    Private Sub OpenFolder(sender As Object, e As EventArgs) Handles btnOpen.Click
+    Private Sub OpenFolder(sender As Object, e As EventArgs) Handles btnOpen.Click, NotificationContextMenuOpen.Click
         Process.Start(txtSaveLocation.Text)
     End Sub
 
