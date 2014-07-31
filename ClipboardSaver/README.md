@@ -1,4 +1,4 @@
-Clipboard Image Saver
+Clipboard Image Saver [![Build status](https://ci.appveyor.com/api/projects/status/g32gra4rxcwlrwqr)](https://ci.appveyor.com/project/Walkman100/clipboard-projects)
 ==============
 
 This is a simple VB.Net program that saves any images that are set into the clipboard to a specified file.
