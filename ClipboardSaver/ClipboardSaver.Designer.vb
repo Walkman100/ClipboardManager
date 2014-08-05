@@ -33,9 +33,9 @@ Partial Class ClipboardSaver
         Me.NotificationContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.NotificationContextMenuBrowse = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationContextMenuOpen = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificationContextMenu1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotificationContextMenuSeperator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotificationContextMenuStartStop = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificationContextMenu2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotificationContextMenuSeperator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotificationContextMenuShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationContextMenuEnd = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
@@ -56,6 +56,8 @@ Partial Class ClipboardSaver
         Me.txtDateTimeDelimiter = New System.Windows.Forms.TextBox()
         Me.txtDateDelimiter2 = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
+        Me.chkShowSave = New System.Windows.Forms.CheckBox()
+        Me.chkShowClear = New System.Windows.Forms.CheckBox()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
         Me.SuspendLayout()
@@ -119,9 +121,9 @@ Partial Class ClipboardSaver
         '
         'NotificationContextMenu
         '
-        Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuBrowse, Me.NotificationContextMenuOpen, Me.NotificationContextMenu1, Me.NotificationContextMenuStartStop, Me.NotificationContextMenu2, Me.NotificationContextMenuShow, Me.NotificationContextMenuEnd})
+        Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuBrowse, Me.NotificationContextMenuOpen, Me.NotificationContextMenuSeperator1, Me.NotificationContextMenuStartStop, Me.NotificationContextMenuSeperator2, Me.NotificationContextMenuShow, Me.NotificationContextMenuEnd})
         Me.NotificationContextMenu.Name = "NotificationContextMenu"
-        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 148)
+        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 126)
         '
         'NotificationContextMenuBrowse
         '
@@ -135,10 +137,10 @@ Partial Class ClipboardSaver
         Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(255, 22)
         Me.NotificationContextMenuOpen.Text = "Open screenshot folder"
         '
-        'NotificationContextMenu1
+        'NotificationContextMenuSeperator1
         '
-        Me.NotificationContextMenu1.Name = "NotificationContextMenu1"
-        Me.NotificationContextMenu1.Size = New System.Drawing.Size(252, 6)
+        Me.NotificationContextMenuSeperator1.Name = "NotificationContextMenuSeperator1"
+        Me.NotificationContextMenuSeperator1.Size = New System.Drawing.Size(252, 6)
         '
         'NotificationContextMenuStartStop
         '
@@ -146,10 +148,10 @@ Partial Class ClipboardSaver
         Me.NotificationContextMenuStartStop.Size = New System.Drawing.Size(255, 22)
         Me.NotificationContextMenuStartStop.Text = "Start Checking for Images"
         '
-        'NotificationContextMenu2
+        'NotificationContextMenuSeperator2
         '
-        Me.NotificationContextMenu2.Name = "NotificationContextMenu2"
-        Me.NotificationContextMenu2.Size = New System.Drawing.Size(252, 6)
+        Me.NotificationContextMenuSeperator2.Name = "NotificationContextMenuSeperator2"
+        Me.NotificationContextMenuSeperator2.Size = New System.Drawing.Size(252, 6)
         '
         'NotificationContextMenuShow
         '
@@ -332,13 +334,37 @@ Partial Class ClipboardSaver
         Me.lblDay.TabIndex = 11
         Me.lblDay.Text = "Day"
         '
+        'chkShowSave
+        '
+        Me.chkShowSave.AutoSize = True
+        Me.chkShowSave.Checked = True
+        Me.chkShowSave.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkShowSave.Location = New System.Drawing.Point(12, 118)
+        Me.chkShowSave.Name = "chkShowSave"
+        Me.chkShowSave.Size = New System.Drawing.Size(110, 17)
+        Me.chkShowSave.TabIndex = 7
+        Me.chkShowSave.Text = "Show Save errors"
+        Me.chkShowSave.UseVisualStyleBackColor = True
+        '
+        'chkShowClear
+        '
+        Me.chkShowClear.AutoSize = True
+        Me.chkShowClear.Location = New System.Drawing.Point(128, 118)
+        Me.chkShowClear.Name = "chkShowClear"
+        Me.chkShowClear.Size = New System.Drawing.Size(109, 17)
+        Me.chkShowClear.TabIndex = 8
+        Me.chkShowClear.Text = "Show Clear errors"
+        Me.chkShowClear.UseVisualStyleBackColor = True
+        '
         'ClipboardSaver
         '
         Me.AcceptButton = Me.btnStartStop
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
-        Me.ClientSize = New System.Drawing.Size(528, 127)
+        Me.ClientSize = New System.Drawing.Size(528, 147)
+        Me.Controls.Add(Me.chkShowClear)
+        Me.Controls.Add(Me.chkShowSave)
         Me.Controls.Add(Me.grpNameFormat)
         Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.btnEnd)
@@ -388,7 +414,9 @@ Partial Class ClipboardSaver
     Friend WithEvents txtTimeDelimiter2 As System.Windows.Forms.TextBox
     Friend WithEvents txtExtension As System.Windows.Forms.TextBox
     Friend WithEvents NotificationContextMenuOpen As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NotificationContextMenu1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents NotificationContextMenu2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents NotificationContextMenuSeperator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents NotificationContextMenuSeperator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents chkShowSave As System.Windows.Forms.CheckBox
+    Friend WithEvents chkShowClear As System.Windows.Forms.CheckBox
 
 End Class
