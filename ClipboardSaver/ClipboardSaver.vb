@@ -58,11 +58,21 @@
 
     Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsImage = True Then
-            ScreenCapture = Clipboard.GetImage
-            ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
-                               txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
-                               txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
-            Clipboard.Clear()
+            Try
+                ScreenCapture = Clipboard.GetImage
+                ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
+                                   txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
+                                   txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
+            Catch ex As Exception
+                'if notification setting = True
+                MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
+                'end if
+            End Try
+            Try
+                Clipboard.Clear()
+            Catch ex As Exception
+                MsgBox("Error clearing clipboard after saving! (This can probably be ignored) The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Information, "Error Clearing Clipboard")
+            End Try
         End If
     End Sub
 End Class
