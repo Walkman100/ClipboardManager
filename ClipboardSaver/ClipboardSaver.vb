@@ -65,7 +65,9 @@
                                    txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
             Catch ex As Exception
                 If chkShowSave.Checked = True Then
+                    TimerClipboardChecker.Stop()
                     MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
+                    TimerClipboardChecker.Start()
                 End If
             End Try
             Try
