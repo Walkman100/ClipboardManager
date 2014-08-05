@@ -3,22 +3,23 @@
 
     Private Sub ClipboardSaver_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtSaveLocation.Text = My.Settings.LastDir
-    End Sub
-
-    Private Sub btnStartStop_Click(sender As Object, e As EventArgs) Handles btnStartStop.Click
-        If btnStartStop.Text = "Start Checking for Images" Then
-            btnStartStop.Text = "Stop Checking for Images"
-            NotificationContextMenuStartStop.Text = "Stop Checking for Images"
-            TimerClipboardChecker.Start()
-        Else
-            btnStartStop.Text = "Start Checking for Images"
-            NotificationContextMenuStartStop.Text = "Start Checking for Images"
-            TimerClipboardChecker.Stop()
+        If txtSaveLocation.Text = "" Then
+            txtSaveLocation.Text = Environment.GetEnvironmentVariable("USERPROFILE") & "\Pictures\Screenshots"
         End If
+        chkShowSave.Checked = My.Settings.ShowSave
+        chkShowClear.Checked = My.Settings.ShowClear
+        For Each s As String In My.Application.CommandLineArgs
+            If s.ToLower.StartsWith("hide") Then
+                HideClipboardSaver(Nothing, Nothing)
+            End If
+            If s.ToLower.StartsWith("autostart") Then
+                StartStop(Nothing, Nothing)
+            End If
+        Next
     End Sub
 
-    Private Sub NotificationContextMenuStartStop_Click(sender As Object, e As EventArgs) Handles NotificationContextMenuStartStop.Click
-        If NotificationContextMenuStartStop.Text = "Start Checking for Images" Then
+    Private Sub StartStop(sender As Object, e As EventArgs) Handles btnStartStop.Click, NotificationContextMenuStartStop.Click
+        If btnStartStop.Text = "Start Checking for Images" Then
             btnStartStop.Text = "Stop Checking for Images"
             NotificationContextMenuStartStop.Text = "Stop Checking for Images"
             TimerClipboardChecker.Start()
@@ -78,5 +79,17 @@
                 End If
             End Try
         End If
+    End Sub
+
+    Private Sub lnkShowOptions_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkShowOptions.LinkClicked
+        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & "autostart: Start checking for images automatically", , "Clipboard image saver Launch options")
+    End Sub
+
+    Private Sub chkShowSave_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSave.CheckedChanged
+        My.Settings.ShowSave = chkShowSave.Checked
+    End Sub
+
+    Private Sub chkShowClear_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowClear.CheckedChanged
+        My.Settings.ShowClear = chkShowClear.Checked
     End Sub
 End Class

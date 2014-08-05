@@ -58,6 +58,7 @@ Partial Class ClipboardSaver
         Me.lblDay = New System.Windows.Forms.Label()
         Me.chkShowSave = New System.Windows.Forms.CheckBox()
         Me.chkShowClear = New System.Windows.Forms.CheckBox()
+        Me.lnkShowOptions = New System.Windows.Forms.LinkLabel()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
         Me.SuspendLayout()
@@ -356,6 +357,17 @@ Partial Class ClipboardSaver
         Me.chkShowClear.Text = "Show Clear errors"
         Me.chkShowClear.UseVisualStyleBackColor = True
         '
+        'lnkShowOptions
+        '
+        Me.lnkShowOptions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lnkShowOptions.AutoSize = True
+        Me.lnkShowOptions.Location = New System.Drawing.Point(410, 119)
+        Me.lnkShowOptions.Name = "lnkShowOptions"
+        Me.lnkShowOptions.Size = New System.Drawing.Size(106, 13)
+        Me.lnkShowOptions.TabIndex = 9
+        Me.lnkShowOptions.TabStop = True
+        Me.lnkShowOptions.Text = "Show launch options"
+        '
         'ClipboardSaver
         '
         Me.AcceptButton = Me.btnStartStop
@@ -363,6 +375,7 @@ Partial Class ClipboardSaver
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
         Me.ClientSize = New System.Drawing.Size(528, 147)
+        Me.Controls.Add(Me.lnkShowOptions)
         Me.Controls.Add(Me.chkShowClear)
         Me.Controls.Add(Me.chkShowSave)
         Me.Controls.Add(Me.grpNameFormat)
@@ -373,8 +386,8 @@ Partial Class ClipboardSaver
         Me.Controls.Add(Me.btnBrowse)
         Me.Controls.Add(Me.txtSaveLocation)
         Me.HelpButton = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ClipboardSaver"
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Image Saver"
         Me.NotificationContextMenu.ResumeLayout(False)
@@ -418,5 +431,6 @@ Partial Class ClipboardSaver
     Friend WithEvents NotificationContextMenuSeperator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents chkShowSave As System.Windows.Forms.CheckBox
     Friend WithEvents chkShowClear As System.Windows.Forms.CheckBox
+    Friend WithEvents lnkShowOptions As System.Windows.Forms.LinkLabel
 
 End Class
