@@ -64,14 +64,16 @@
                                    txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
                                    txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
             Catch ex As Exception
-                'if notification setting = True
-                MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
-                'end if
+                If chkShowSave.Checked = True Then
+                    MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
+                End If
             End Try
             Try
                 Clipboard.Clear()
             Catch ex As Exception
-                MsgBox("Error clearing clipboard after saving! (This can probably be ignored) The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Information, "Error Clearing Clipboard")
+                If chkShowClear.Checked = True Then
+                    MsgBox("Error clearing clipboard after saving! (This can probably be ignored) The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Information, "Error Clearing Clipboard")
+                End If
             End Try
         End If
     End Sub
