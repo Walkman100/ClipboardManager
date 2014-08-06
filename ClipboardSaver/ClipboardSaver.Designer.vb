@@ -185,7 +185,7 @@ Partial Class ClipboardSaver
         'txtDateDelimiter1
         '
         Me.txtDateDelimiter1.Location = New System.Drawing.Point(41, 19)
-        Me.txtDateDelimiter1.MaxLength = 2
+        Me.txtDateDelimiter1.MaxLength = 1
         Me.txtDateDelimiter1.Name = "txtDateDelimiter1"
         Me.txtDateDelimiter1.Size = New System.Drawing.Size(20, 20)
         Me.txtDateDelimiter1.TabIndex = 8
@@ -257,7 +257,7 @@ Partial Class ClipboardSaver
         'txtTimeDelimiter3
         '
         Me.txtTimeDelimiter3.Location = New System.Drawing.Point(377, 19)
-        Me.txtTimeDelimiter3.MaxLength = 2
+        Me.txtTimeDelimiter3.MaxLength = 1
         Me.txtTimeDelimiter3.Name = "txtTimeDelimiter3"
         Me.txtTimeDelimiter3.Size = New System.Drawing.Size(20, 20)
         Me.txtTimeDelimiter3.TabIndex = 18
@@ -275,7 +275,7 @@ Partial Class ClipboardSaver
         'txtTimeDelimiter2
         '
         Me.txtTimeDelimiter2.Location = New System.Drawing.Point(301, 19)
-        Me.txtTimeDelimiter2.MaxLength = 2
+        Me.txtTimeDelimiter2.MaxLength = 1
         Me.txtTimeDelimiter2.Name = "txtTimeDelimiter2"
         Me.txtTimeDelimiter2.Size = New System.Drawing.Size(20, 20)
         Me.txtTimeDelimiter2.TabIndex = 16
@@ -293,7 +293,7 @@ Partial Class ClipboardSaver
         'txtTimeDelimiter1
         '
         Me.txtTimeDelimiter1.Location = New System.Drawing.Point(230, 19)
-        Me.txtTimeDelimiter1.MaxLength = 2
+        Me.txtTimeDelimiter1.MaxLength = 1
         Me.txtTimeDelimiter1.Name = "txtTimeDelimiter1"
         Me.txtTimeDelimiter1.Size = New System.Drawing.Size(20, 20)
         Me.txtTimeDelimiter1.TabIndex = 14
@@ -311,7 +311,7 @@ Partial Class ClipboardSaver
         'txtDateTimeDelimiter
         '
         Me.txtDateTimeDelimiter.Location = New System.Drawing.Point(168, 19)
-        Me.txtDateTimeDelimiter.MaxLength = 2
+        Me.txtDateTimeDelimiter.MaxLength = 1
         Me.txtDateTimeDelimiter.Name = "txtDateTimeDelimiter"
         Me.txtDateTimeDelimiter.Size = New System.Drawing.Size(20, 20)
         Me.txtDateTimeDelimiter.TabIndex = 12
@@ -320,7 +320,7 @@ Partial Class ClipboardSaver
         'txtDateDelimiter2
         '
         Me.txtDateDelimiter2.Location = New System.Drawing.Point(110, 19)
-        Me.txtDateDelimiter2.MaxLength = 2
+        Me.txtDateDelimiter2.MaxLength = 1
         Me.txtDateDelimiter2.Name = "txtDateDelimiter2"
         Me.txtDateDelimiter2.Size = New System.Drawing.Size(20, 20)
         Me.txtDateDelimiter2.TabIndex = 10

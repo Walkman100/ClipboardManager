@@ -89,6 +89,90 @@ Namespace My
                 Me("ShowClear") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-")>  _
+        Public Property DateDelimiter1() As Char
+            Get
+                Return CType(Me("DateDelimiter1"),Char)
+            End Get
+            Set
+                Me("DateDelimiter1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-")>  _
+        Public Property DateDelimiter2() As Char
+            Get
+                Return CType(Me("DateDelimiter2"),Char)
+            End Get
+            Set
+                Me("DateDelimiter2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("_")>  _
+        Public Property DateTimeDelimiter() As Char
+            Get
+                Return CType(Me("DateTimeDelimiter"),Char)
+            End Get
+            Set
+                Me("DateTimeDelimiter") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".")>  _
+        Public Property TimeDelimiter1() As Char
+            Get
+                Return CType(Me("TimeDelimiter1"),Char)
+            End Get
+            Set
+                Me("TimeDelimiter1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".")>  _
+        Public Property TimeDelimiter2() As Char
+            Get
+                Return CType(Me("TimeDelimiter2"),Char)
+            End Get
+            Set
+                Me("TimeDelimiter2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".")>  _
+        Public Property TimeDelimiter3() As Char
+            Get
+                Return CType(Me("TimeDelimiter3"),Char)
+            End Get
+            Set
+                Me("TimeDelimiter3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".png")>  _
+        Public Property Extension() As String
+            Get
+                Return CType(Me("Extension"),String)
+            End Get
+            Set
+                Me("Extension") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

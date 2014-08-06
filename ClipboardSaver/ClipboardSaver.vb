@@ -8,6 +8,13 @@
         End If
         chkShowSave.Checked = My.Settings.ShowSave
         chkShowClear.Checked = My.Settings.ShowClear
+        txtDateDelimiter1.Text = My.Settings.DateDelimiter1
+        txtDateDelimiter2.Text = My.Settings.DateDelimiter2
+        txtDateTimeDelimiter.Text = My.Settings.DateTimeDelimiter
+        txtTimeDelimiter1.Text = My.Settings.TimeDelimiter1
+        txtTimeDelimiter2.Text = My.Settings.TimeDelimiter2
+        txtTimeDelimiter3.Text = My.Settings.TimeDelimiter3
+        txtExtension.Text = My.Settings.Extension
         For Each s As String In My.Application.CommandLineArgs
             If s.ToLower.StartsWith("hide") Then
                 HideClipboardSaver(Nothing, Nothing)
@@ -91,5 +98,18 @@
 
     Private Sub chkShowClear_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowClear.CheckedChanged
         My.Settings.ShowClear = chkShowClear.Checked
+    End Sub
+
+    Private Sub ClipboardSaver_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+        My.Settings.ShowSave = chkShowSave.Checked
+        My.Settings.ShowClear = chkShowClear.Checked
+        My.Settings.DateDelimiter1 = txtDateDelimiter1.Text
+        My.Settings.DateDelimiter2 = txtDateDelimiter2.Text
+        My.Settings.DateTimeDelimiter = txtDateTimeDelimiter.Text
+        My.Settings.TimeDelimiter1 = txtTimeDelimiter1.Text
+        My.Settings.TimeDelimiter2 = txtTimeDelimiter2.Text
+        My.Settings.TimeDelimiter3 = txtTimeDelimiter3.Text
+        My.Settings.Extension = txtExtension.Text
+        My.Settings.Save()
     End Sub
 End Class

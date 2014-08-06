@@ -11,5 +11,26 @@
     <Setting Name="ShowClear" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="DateDelimiter1" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">-</Value>
+    </Setting>
+    <Setting Name="DateDelimiter2" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">-</Value>
+    </Setting>
+    <Setting Name="DateTimeDelimiter" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">_</Value>
+    </Setting>
+    <Setting Name="TimeDelimiter1" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="TimeDelimiter2" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="TimeDelimiter3" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="Extension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
