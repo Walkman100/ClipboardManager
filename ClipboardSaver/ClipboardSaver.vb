@@ -100,7 +100,9 @@
         My.Settings.ShowClear = chkShowClear.Checked
     End Sub
 
-    Private Sub ClipboardSaver_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+    Private Sub ClipboardSaver_KeyPress(sender As Object, e As KeyEventArgs) Handles _
+            txtDateDelimiter1.KeyUp, txtDateDelimiter2.KeyUp, txtDateTimeDelimiter.KeyUp, _
+            txtTimeDelimiter1.KeyUp, txtTimeDelimiter2.KeyUp, txtTimeDelimiter3.KeyUp, txtExtension.KeyUp
         My.Settings.ShowSave = chkShowSave.Checked
         My.Settings.ShowClear = chkShowClear.Checked
         My.Settings.DateDelimiter1 = txtDateDelimiter1.Text
