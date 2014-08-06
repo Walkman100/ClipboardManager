@@ -46,12 +46,12 @@
         Process.Start(txtSaveLocation.Text)
     End Sub
 
-    Private Sub HideClipboardSaver(sender As Object, e As EventArgs) Handles btnHide.Click
+    Sub HideClipboardSaver(sender As Object, e As EventArgs) Handles btnHide.Click
         Me.Hide()
         NotificationIcon.Visible = True
     End Sub
 
-    Private Sub ShowClipboardSaver(sender As Object, e As EventArgs) Handles NotificationContextMenuShow.Click, NotificationIcon.DoubleClick
+    Sub ShowClipboardSaver(sender As Object, e As EventArgs) Handles NotificationContextMenuShow.Click, NotificationIcon.DoubleClick
         Me.Show()
         NotificationIcon.Visible = False
     End Sub
