@@ -92,11 +92,11 @@
         MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & "autostart: Start checking for images automatically" & vbNewLine & "ChangeCheckState [Only when started when an istance is already running]: Starts or stops checking for images depending on checking state before command is run", MsgBoxStyle.Information, "Clipboard image saver Launch options")
     End Sub
 
-    Private Sub chkShowSave_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSave.CheckedChanged
+    Private Sub chkShowSave_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSave.Click
         My.Settings.ShowSave = chkShowSave.Checked
     End Sub
 
-    Private Sub chkShowClear_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowClear.CheckedChanged
+    Private Sub chkShowClear_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowClear.Click
         My.Settings.ShowClear = chkShowClear.Checked
     End Sub
 
