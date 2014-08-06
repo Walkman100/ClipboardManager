@@ -25,7 +25,7 @@
         Next
     End Sub
 
-    Private Sub StartStop(sender As Object, e As EventArgs) Handles btnStartStop.Click, NotificationContextMenuStartStop.Click
+    Sub StartStop(sender As Object, e As EventArgs) Handles btnStartStop.Click, NotificationContextMenuStartStop.Click
         If btnStartStop.Text = "Start Checking for Images" Then
             btnStartStop.Text = "Stop Checking for Images"
             NotificationContextMenuStartStop.Text = "Stop Checking for Images"
@@ -89,7 +89,7 @@
     End Sub
 
     Private Sub lnkShowOptions_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkShowOptions.LinkClicked
-        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & "autostart: Start checking for images automatically", , "Clipboard image saver Launch options")
+        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & "autostart: Start checking for images automatically" & vbNewLine & "ChangeCheckState [Only when started when an istance is already running]: Starts or stops checking for images depending on checking state before command is run", MsgBoxStyle.Information, "Clipboard image saver Launch options")
     End Sub
 
     Private Sub chkShowSave_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSave.CheckedChanged

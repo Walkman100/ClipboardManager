@@ -13,6 +13,9 @@
                 If s.ToLower.StartsWith("hide") Then
                     ClipboardSaver.HideClipboardSaver(Nothing, Nothing)
                 End If
+                If s.ToLower.StartsWith("changecheckstate") Then
+                    ClipboardSaver.StartStop(Nothing, Nothing)
+                End If
             Next
         End Sub
     End Class
