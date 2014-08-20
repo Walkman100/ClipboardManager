@@ -114,4 +114,21 @@
         My.Settings.Extension = txtExtension.Text
         My.Settings.Save()
     End Sub
+
+    Private Sub btnSaveOnce_Click(sender As Object, e As EventArgs) Handles btnSaveOnce.Click
+        If Clipboard.ContainsImage = True Then
+            Try
+                ScreenCapture = Clipboard.GetImage
+                ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
+                                   txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
+                                   txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
+            Catch ex As Exception
+                TimerClipboardChecker.Stop()
+                MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
+                TimerClipboardChecker.Start()
+            End Try
+        Else
+            MsgBox("No image found in Clipboard!", MsgBoxStyle.Critical, "No image in clipboard")
+        End If
+    End Sub
 End Class

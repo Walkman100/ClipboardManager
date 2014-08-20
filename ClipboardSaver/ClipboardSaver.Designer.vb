@@ -59,6 +59,7 @@ Partial Class ClipboardSaver
         Me.chkShowSave = New System.Windows.Forms.CheckBox()
         Me.chkShowClear = New System.Windows.Forms.CheckBox()
         Me.lnkShowOptions = New System.Windows.Forms.LinkLabel()
+        Me.btnSaveOnce = New System.Windows.Forms.Button()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
         Me.SuspendLayout()
@@ -70,7 +71,7 @@ Partial Class ClipboardSaver
         Me.txtSaveLocation.Location = New System.Drawing.Point(12, 12)
         Me.txtSaveLocation.Name = "txtSaveLocation"
         Me.txtSaveLocation.ReadOnly = True
-        Me.txtSaveLocation.Size = New System.Drawing.Size(504, 20)
+        Me.txtSaveLocation.Size = New System.Drawing.Size(423, 20)
         Me.txtSaveLocation.TabIndex = 0
         '
         'btnBrowse
@@ -368,6 +369,16 @@ Partial Class ClipboardSaver
         Me.lnkShowOptions.TabStop = True
         Me.lnkShowOptions.Text = "Show launch options"
         '
+        'btnSaveOnce
+        '
+        Me.btnSaveOnce.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSaveOnce.Location = New System.Drawing.Point(441, 10)
+        Me.btnSaveOnce.Name = "btnSaveOnce"
+        Me.btnSaveOnce.Size = New System.Drawing.Size(75, 23)
+        Me.btnSaveOnce.TabIndex = 10
+        Me.btnSaveOnce.Text = "Save Once"
+        Me.btnSaveOnce.UseVisualStyleBackColor = True
+        '
         'ClipboardSaver
         '
         Me.AcceptButton = Me.btnStartStop
@@ -375,6 +386,7 @@ Partial Class ClipboardSaver
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
         Me.ClientSize = New System.Drawing.Size(528, 147)
+        Me.Controls.Add(Me.btnSaveOnce)
         Me.Controls.Add(Me.lnkShowOptions)
         Me.Controls.Add(Me.chkShowClear)
         Me.Controls.Add(Me.chkShowSave)
@@ -432,5 +444,6 @@ Partial Class ClipboardSaver
     Friend WithEvents chkShowSave As System.Windows.Forms.CheckBox
     Friend WithEvents chkShowClear As System.Windows.Forms.CheckBox
     Friend WithEvents lnkShowOptions As System.Windows.Forms.LinkLabel
+    Friend WithEvents btnSaveOnce As System.Windows.Forms.Button
 
 End Class
