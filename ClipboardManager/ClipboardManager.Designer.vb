@@ -22,6 +22,7 @@ Partial Class ClipboardManager
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ClipboardManager))
         Me.lstLog = New System.Windows.Forms.ListBox()
         Me.lblRecent = New System.Windows.Forms.Label()
@@ -33,6 +34,7 @@ Partial Class ClipboardManager
         Me.btnMoveUp = New System.Windows.Forms.Button()
         Me.btnMoveDown = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
+        Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'lstLog
@@ -145,6 +147,9 @@ Partial Class ClipboardManager
         Me.btnEnd.Text = "Close"
         Me.btnEnd.UseVisualStyleBackColor = True
         '
+        'TimerClipboardChecker
+        '
+        '
         'ClipboardManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -179,5 +184,6 @@ Partial Class ClipboardManager
     Friend WithEvents btnMoveUp As System.Windows.Forms.Button
     Friend WithEvents btnMoveDown As System.Windows.Forms.Button
     Friend WithEvents btnEnd As System.Windows.Forms.Button
+    Friend WithEvents TimerClipboardChecker As System.Windows.Forms.Timer
 
 End Class

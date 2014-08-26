@@ -1,8 +1,7 @@
 ﻿Public Class ClipboardManager
 
     Private Sub ClipboardManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lstLog.Items.Add("lel")
-        lstLog.Items.Add("kek")
+        TimerClipboardChecker.Start()
     End Sub
 
     Private Sub lstLog_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstLog.SelectedIndexChanged
@@ -63,5 +62,11 @@
 
     Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
         Application.Exit()
+    End Sub
+
+    Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
+        If Not lstLog.Items.Contains(Clipboard.GetText) Then
+            lstLog.Items.Insert(0, Clipboard.GetText)
+        End If
     End Sub
 End Class
