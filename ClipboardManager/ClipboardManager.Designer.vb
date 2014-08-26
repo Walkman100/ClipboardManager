@@ -35,6 +35,8 @@ Partial Class ClipboardManager
         Me.btnMoveDown = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
+        Me.btnHide = New System.Windows.Forms.Button()
+        Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.SuspendLayout()
         '
         'lstLog
@@ -49,7 +51,7 @@ Partial Class ClipboardManager
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
         Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstLog.Size = New System.Drawing.Size(296, 212)
+        Me.lstLog.Size = New System.Drawing.Size(296, 238)
         Me.lstLog.TabIndex = 0
         '
         'lblRecent
@@ -108,10 +110,10 @@ Partial Class ClipboardManager
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(314, 185)
+        Me.btnClear.Location = New System.Drawing.Point(314, 211)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
-        Me.btnClear.TabIndex = 6
+        Me.btnClear.TabIndex = 9
         Me.btnClear.Text = "Clear List"
         Me.btnClear.UseVisualStyleBackColor = True
         '
@@ -122,7 +124,7 @@ Partial Class ClipboardManager
         Me.btnMoveUp.Location = New System.Drawing.Point(314, 122)
         Me.btnMoveUp.Name = "btnMoveUp"
         Me.btnMoveUp.Size = New System.Drawing.Size(100, 23)
-        Me.btnMoveUp.TabIndex = 7
+        Me.btnMoveUp.TabIndex = 6
         Me.btnMoveUp.Text = "Move Item Up"
         Me.btnMoveUp.UseVisualStyleBackColor = True
         '
@@ -133,28 +135,44 @@ Partial Class ClipboardManager
         Me.btnMoveDown.Location = New System.Drawing.Point(314, 151)
         Me.btnMoveDown.Name = "btnMoveDown"
         Me.btnMoveDown.Size = New System.Drawing.Size(100, 23)
-        Me.btnMoveDown.TabIndex = 8
+        Me.btnMoveDown.TabIndex = 7
         Me.btnMoveDown.Text = "Move Item Down"
         Me.btnMoveDown.UseVisualStyleBackColor = True
         '
         'btnEnd
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEnd.Location = New System.Drawing.Point(314, 214)
+        Me.btnEnd.Location = New System.Drawing.Point(314, 240)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
-        Me.btnEnd.TabIndex = 9
+        Me.btnEnd.TabIndex = 10
         Me.btnEnd.Text = "Close"
         Me.btnEnd.UseVisualStyleBackColor = True
         '
         'TimerClipboardChecker
         '
         '
+        'btnHide
+        '
+        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHide.Location = New System.Drawing.Point(314, 182)
+        Me.btnHide.Name = "btnHide"
+        Me.btnHide.Size = New System.Drawing.Size(100, 23)
+        Me.btnHide.TabIndex = 8
+        Me.btnHide.Text = "Hide"
+        Me.btnHide.UseVisualStyleBackColor = True
+        '
+        'NotifyIcon
+        '
+        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon.Text = "Clipboard Manager" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Click to open)"
+        '
         'ClipboardManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 249)
+        Me.ClientSize = New System.Drawing.Size(426, 275)
+        Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.btnEnd)
         Me.Controls.Add(Me.btnMoveDown)
         Me.Controls.Add(Me.btnMoveUp)
@@ -185,5 +203,7 @@ Partial Class ClipboardManager
     Friend WithEvents btnMoveDown As System.Windows.Forms.Button
     Friend WithEvents btnEnd As System.Windows.Forms.Button
     Friend WithEvents TimerClipboardChecker As System.Windows.Forms.Timer
+    Friend WithEvents btnHide As System.Windows.Forms.Button
+    Friend WithEvents NotifyIcon As System.Windows.Forms.NotifyIcon
 
 End Class

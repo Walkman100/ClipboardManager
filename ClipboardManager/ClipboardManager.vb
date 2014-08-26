@@ -69,4 +69,14 @@
             lstLog.Items.Insert(0, Clipboard.GetText)
         End If
     End Sub
+
+    Private Sub btnHide_Click(sender As Object, e As EventArgs) Handles btnHide.Click
+        Me.Hide()
+        NotifyIcon.Visible = True
+    End Sub
+
+    Private Sub NotifyIcon_Click(sender As Object, e As EventArgs) Handles NotifyIcon.Click
+        Me.Show()
+        NotifyIcon.Visible = False
+    End Sub
 End Class
