@@ -151,6 +151,7 @@ Partial Class ClipboardManager
         '
         'TimerClipboardChecker
         '
+        Me.TimerClipboardChecker.Interval = 500
         '
         'btnHide
         '

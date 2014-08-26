@@ -17,8 +17,16 @@
             btnCopy.Enabled = True
             btnDelete.Enabled = True
             btnEdit.Enabled = True
-            btnMoveDown.Enabled = True
-            btnMoveUp.Enabled = True
+            If lstLog.SelectedIndex = 0 Then
+                btnMoveUp.Enabled = False
+            Else
+                btnMoveUp.Enabled = True
+            End If
+            If lstLog.Items.Count - 1 = lstLog.SelectedIndex Then
+                btnMoveDown.Enabled = False
+            Else
+                btnMoveDown.Enabled = True
+            End If
         End If
     End Sub
 
@@ -59,6 +67,12 @@
         toReplace = lstLog.Items.Item(tmpSelIndex - 1)
         lstLog.Items.RemoveAt(tmpSelIndex - 1)
         lstLog.Items.Insert(tmpSelIndex, toReplace)
+        If lstLog.SelectedIndex = 0 Then btnMoveUp.Enabled = False
+        If lstLog.Items.Count - 1 = lstLog.SelectedIndex Then
+            btnMoveDown.Enabled = False
+        Else
+            btnMoveDown.Enabled = True
+        End If
     End Sub
 
     Private Sub btnMoveDown_Click(sender As Object, e As EventArgs) Handles btnMoveDown.Click
@@ -66,6 +80,12 @@
         toReplace = lstLog.Items.Item(tmpSelIndex + 1)
         lstLog.Items.RemoveAt(tmpSelIndex + 1)
         lstLog.Items.Insert(tmpSelIndex, toReplace)
+        If lstLog.Items.Count - 1 = lstLog.SelectedIndex Then btnMoveDown.Enabled = False
+        If lstLog.SelectedIndex = 0 Then
+            btnMoveUp.Enabled = False
+        Else
+            btnMoveUp.Enabled = True
+        End If
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
