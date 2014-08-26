@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ClipboardManager")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ClipboardManager")> 
-<Assembly: AssemblyCopyright("Copyright ©  2014")> 
+<Assembly: AssemblyTitle("Clipboard Manager")> 
+<Assembly: AssemblyDescription("This program keeps a list of anything that went into the clipboard, allowing you to paste an item from it.")> 
+<Assembly: AssemblyCompany("DeavmiOSS")> 
+<Assembly: AssemblyProduct("Clipboard Manager")> 
+<Assembly: AssemblyCopyright("FOSS from Walkman")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
