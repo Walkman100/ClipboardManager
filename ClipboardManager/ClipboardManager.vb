@@ -1,4 +1,6 @@
 ﻿Public Class ClipboardManager
+    Dim toReplace As String
+    Dim tmpSelIndex As Integer
 
     Private Sub ClipboardManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TimerClipboardChecker.Start()
@@ -40,7 +42,11 @@
         If lstLog.SelectedIndex = -1 Then
             MsgBox("No item selected")
         Else
-            lstLog.Items.Item(lstLog.SelectedIndex) = InputBox("Enter text to replace """ & lstLog.SelectedItem & """ with:", "Replace an item", lstLog.SelectedItem)
+            toReplace = InputBox("Enter text to replace" & vbNewLine & lstLog.SelectedItem & vbNewLine & "with:", "Replace an item", lstLog.SelectedItem)
+            If toReplace <> "" Then
+                lstLog.Items.Item(lstLog.SelectedIndex) = toReplace
+                toReplace = ""
+            End If
         End If
     End Sub
 
@@ -49,11 +55,17 @@
     End Sub
 
     Private Sub btnMoveUp_Click(sender As Object, e As EventArgs) Handles btnMoveUp.Click
-
+        tmpSelIndex = lstLog.SelectedIndex
+        toReplace = lstLog.Items.Item(tmpSelIndex - 1)
+        lstLog.Items.RemoveAt(tmpSelIndex - 1)
+        lstLog.Items.Insert(tmpSelIndex, toReplace)
     End Sub
 
     Private Sub btnMoveDown_Click(sender As Object, e As EventArgs) Handles btnMoveDown.Click
-
+        tmpSelIndex = lstLog.SelectedIndex
+        toReplace = lstLog.Items.Item(tmpSelIndex + 1)
+        lstLog.Items.RemoveAt(tmpSelIndex + 1)
+        lstLog.Items.Insert(tmpSelIndex, toReplace)
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
