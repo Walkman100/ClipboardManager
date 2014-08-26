@@ -31,7 +31,7 @@ Partial Class ClipboardManager
         Me.chkAutoSort = New System.Windows.Forms.CheckBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnMoveUp = New System.Windows.Forms.Button()
-        Me.chkMoveDown = New System.Windows.Forms.Button()
+        Me.btnMoveDown = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -46,7 +46,8 @@ Partial Class ClipboardManager
         Me.lstLog.IntegralHeight = False
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
-        Me.lstLog.Size = New System.Drawing.Size(154, 225)
+        Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
+        Me.lstLog.Size = New System.Drawing.Size(296, 212)
         Me.lstLog.TabIndex = 0
         '
         'lblRecent
@@ -61,7 +62,8 @@ Partial Class ClipboardManager
         'btnCopy
         '
         Me.btnCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCopy.Location = New System.Drawing.Point(172, 12)
+        Me.btnCopy.Enabled = False
+        Me.btnCopy.Location = New System.Drawing.Point(314, 12)
         Me.btnCopy.Name = "btnCopy"
         Me.btnCopy.Size = New System.Drawing.Size(100, 23)
         Me.btnCopy.TabIndex = 2
@@ -71,7 +73,8 @@ Partial Class ClipboardManager
         'btnDelete
         '
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(172, 41)
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Location = New System.Drawing.Point(314, 41)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(100, 23)
         Me.btnDelete.TabIndex = 3
@@ -81,7 +84,8 @@ Partial Class ClipboardManager
         'btnEdit
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(172, 70)
+        Me.btnEdit.Enabled = False
+        Me.btnEdit.Location = New System.Drawing.Point(314, 70)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(100, 23)
         Me.btnEdit.TabIndex = 4
@@ -92,7 +96,7 @@ Partial Class ClipboardManager
         '
         Me.chkAutoSort.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkAutoSort.AutoSize = True
-        Me.chkAutoSort.Location = New System.Drawing.Point(172, 99)
+        Me.chkAutoSort.Location = New System.Drawing.Point(314, 99)
         Me.chkAutoSort.Name = "chkAutoSort"
         Me.chkAutoSort.Size = New System.Drawing.Size(70, 17)
         Me.chkAutoSort.TabIndex = 5
@@ -102,7 +106,7 @@ Partial Class ClipboardManager
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(172, 198)
+        Me.btnClear.Location = New System.Drawing.Point(314, 185)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
         Me.btnClear.TabIndex = 6
@@ -112,27 +116,29 @@ Partial Class ClipboardManager
         'btnMoveUp
         '
         Me.btnMoveUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMoveUp.Location = New System.Drawing.Point(172, 122)
+        Me.btnMoveUp.Enabled = False
+        Me.btnMoveUp.Location = New System.Drawing.Point(314, 122)
         Me.btnMoveUp.Name = "btnMoveUp"
         Me.btnMoveUp.Size = New System.Drawing.Size(100, 23)
         Me.btnMoveUp.TabIndex = 7
         Me.btnMoveUp.Text = "Move Item Up"
         Me.btnMoveUp.UseVisualStyleBackColor = True
         '
-        'chkMoveDown
+        'btnMoveDown
         '
-        Me.chkMoveDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkMoveDown.Location = New System.Drawing.Point(172, 151)
-        Me.chkMoveDown.Name = "chkMoveDown"
-        Me.chkMoveDown.Size = New System.Drawing.Size(100, 23)
-        Me.chkMoveDown.TabIndex = 8
-        Me.chkMoveDown.Text = "Move Item Down"
-        Me.chkMoveDown.UseVisualStyleBackColor = True
+        Me.btnMoveDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMoveDown.Enabled = False
+        Me.btnMoveDown.Location = New System.Drawing.Point(314, 151)
+        Me.btnMoveDown.Name = "btnMoveDown"
+        Me.btnMoveDown.Size = New System.Drawing.Size(100, 23)
+        Me.btnMoveDown.TabIndex = 8
+        Me.btnMoveDown.Text = "Move Item Down"
+        Me.btnMoveDown.UseVisualStyleBackColor = True
         '
         'btnEnd
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEnd.Location = New System.Drawing.Point(172, 227)
+        Me.btnEnd.Location = New System.Drawing.Point(314, 214)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
         Me.btnEnd.TabIndex = 9
@@ -143,9 +149,9 @@ Partial Class ClipboardManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(426, 249)
         Me.Controls.Add(Me.btnEnd)
-        Me.Controls.Add(Me.chkMoveDown)
+        Me.Controls.Add(Me.btnMoveDown)
         Me.Controls.Add(Me.btnMoveUp)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkAutoSort)
@@ -157,6 +163,7 @@ Partial Class ClipboardManager
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ClipboardManager"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Manager"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -170,7 +177,7 @@ Partial Class ClipboardManager
     Friend WithEvents chkAutoSort As System.Windows.Forms.CheckBox
     Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents btnMoveUp As System.Windows.Forms.Button
-    Friend WithEvents chkMoveDown As System.Windows.Forms.Button
+    Friend WithEvents btnMoveDown As System.Windows.Forms.Button
     Friend WithEvents btnEnd As System.Windows.Forms.Button
 
 End Class
