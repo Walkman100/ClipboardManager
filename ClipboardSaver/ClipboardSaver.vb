@@ -29,10 +29,12 @@
         If btnStartStop.Text = "Start Checking for Images" Then
             btnStartStop.Text = "Stop Checking for Images"
             NotificationContextMenuStartStop.Text = "Stop Checking for Images"
+            NotificationIcon.Text = "Clipboard Image Saver" & vbNewLine & "Checking for images"
             TimerClipboardChecker.Start()
         Else
             btnStartStop.Text = "Start Checking for Images"
             NotificationContextMenuStartStop.Text = "Start Checking for Images"
+            NotificationIcon.Text = "Clipboard Image Saver" & vbNewLine & "Not checking for images."
             TimerClipboardChecker.Stop()
         End If
     End Sub

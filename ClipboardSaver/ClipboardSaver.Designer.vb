@@ -119,7 +119,7 @@ Partial Class ClipboardSaver
         '
         Me.NotificationIcon.ContextMenuStrip = Me.NotificationContextMenu
         Me.NotificationIcon.Icon = CType(resources.GetObject("NotificationIcon.Icon"), System.Drawing.Icon)
-        Me.NotificationIcon.Text = "Clipboard Image Saver"
+        Me.NotificationIcon.Text = "Clipboard Image Saver" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Not checking for images."
         '
         'NotificationContextMenu
         '
