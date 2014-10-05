@@ -1,7 +1,7 @@
 ﻿Public Class ClipboardManager
     Dim toReplace As String
     Dim tmpSelIndex As Integer
-
+    
     Private Sub ClipboardManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TimerClipboardChecker.Start()
     End Sub
