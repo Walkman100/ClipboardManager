@@ -7,3 +7,7 @@ This is a collection of VB.Net programs that work with the clipboard. To be merg
 ### [Clipboard Image Saver](https://github.com/Walkman100/Clipboard-Projects/blob/master/ClipboardSaver/README.md) [![Build status of CS](https://ci.appveyor.com/api/projects/status/g32gra4rxcwlrwqr)](https://ci.appveyor.com/project/Walkman100/clipboard-projects)
 
 ### [Clipboard Manager](https://github.com/Walkman100/Clipboard-Projects/blob/master/ClipboardManager/README.md) [![Build status of CM](https://ci.appveyor.com/api/projects/status/g5rgh4tfm5fvk1ky)](https://ci.appveyor.com/project/Walkman100/clipboard-projects-844)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Walkman100/clipboard-projects/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
