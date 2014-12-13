@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Clipboard Manager")> 
-<Assembly: AssemblyDescription("This program keeps a list of anything that went into the clipboard, allowing you to paste an item from it.")> 
+<Assembly: AssemblyDescription("This program keeps a list of anything that went into the clipboard, allowing you to paste an item from it")> 
 <Assembly: AssemblyCompany("DeavmiOSS")> 
-<Assembly: AssemblyProduct("Clipboard Manager")> 
-<Assembly: AssemblyCopyright("FOSS from Walkman")> 
+<Assembly: AssemblyProduct("ClipboardManager")> 
+<Assembly: AssemblyCopyright("FOSS from Walkman 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("Clipboard Image Saver")> 
 <Assembly: AssemblyDescription("Clipboard Image Saver")> 
 <Assembly: AssemblyCompany("DeavmiOSS")> 
-<Assembly: AssemblyProduct("Clipboard Image Saver")> 
-<Assembly: AssemblyCopyright("FOSS From Walkman 2014")> 
+<Assembly: AssemblyProduct("ClipboardImageSaver")> 
+<Assembly: AssemblyCopyright("FOSS from Walkman 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
