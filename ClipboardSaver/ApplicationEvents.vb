@@ -1,5 +1,6 @@
 ﻿Namespace My
-    ' The following events are available for MyApplication:
+
+    ' The following events are available for MyApplication:
     ' 
     ' Startup: Raised when the application starts, before the startup form is created.
     ' Shutdown: Raised after all application forms are closed.  This event is not raised if the application terminates abnormally.
@@ -11,10 +12,10 @@
             ClipboardSaver.ShowClipboardSaver(Nothing, Nothing)
             For Each s As String In e.CommandLine
                 If s.ToLower.StartsWith("hide") Then
-                    ClipboardSaver.HideClipboardSaver(Nothing, Nothing)
+                    ClipboardSaver.HideClipboardSaver()
                 End If
                 If s.ToLower.StartsWith("changecheckstate") Then
-                    ClipboardSaver.StartStop(Nothing, Nothing)
+                    ClipboardSaver.StartStop()
                 End If
             Next
         End Sub

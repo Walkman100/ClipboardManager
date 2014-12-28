@@ -20,15 +20,15 @@
         txtExtension.Text = My.Settings.Extension
         For Each s As String In My.Application.CommandLineArgs
             If s.ToLower.StartsWith("hide") Then
-                HideClipboardSaver(Nothing, Nothing)
+                HideClipboardSaver()
             End If
             If s.ToLower.StartsWith("autostart") Then
-                StartStop(Nothing, Nothing)
+                StartStop()
             End If
         Next
     End Sub
 
-    Sub StartStop(sender As Object, e As EventArgs) Handles btnStartStop.Click, NotificationContextMenuStartStop.Click
+    Sub StartStop() Handles btnStartStop.Click, NotificationContextMenuStartStop.Click
         If btnStartStop.Text = "Start Checking for Images" Then
             btnStartStop.Text = "Stop Checking for Images"
             NotificationContextMenuStartStop.Text = "Stop Checking for Images"
@@ -51,7 +51,7 @@
         Process.Start(txtSaveLocation.Text)
     End Sub
 
-    Sub HideClipboardSaver(sender As Object, e As EventArgs) Handles btnHide.Click
+    Sub HideClipboardSaver() Handles btnHide.Click
         Me.Hide()
         NotificationIcon.Visible = True
     End Sub
