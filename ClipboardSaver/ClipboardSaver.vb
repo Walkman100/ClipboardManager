@@ -6,6 +6,9 @@
         If txtSaveLocation.Text = "" Then
             txtSaveLocation.Text = Environment.GetEnvironmentVariable("USERPROFILE") & "\Pictures\Screenshots"
         End If
+        If not IO.Directory.Exists(txtSaveLocation.text) then
+            IO.Directory.CreateDirectory(txtSaveLocation.text)
+        End If
         chkShowSave.Checked = My.Settings.ShowSave
         chkShowClear.Checked = My.Settings.ShowClear
         txtDateDelimiter1.Text = My.Settings.DateDelimiter1
