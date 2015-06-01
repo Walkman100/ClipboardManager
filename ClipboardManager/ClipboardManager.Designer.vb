@@ -37,17 +37,17 @@ Partial Class ClipboardManager
         Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
         Me.btnHide = New System.Windows.Forms.Button()
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.SuspendLayout()
+        Me.SuspendLayout
         '
         'lstLog
         '
-        Me.lstLog.AllowDrop = True
+        Me.lstLog.AllowDrop = true
         Me.lstLog.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstLog.FormattingEnabled = True
-        Me.lstLog.HorizontalScrollbar = True
-        Me.lstLog.IntegralHeight = False
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lstLog.FormattingEnabled = true
+        Me.lstLog.HorizontalScrollbar = true
+        Me.lstLog.IntegralHeight = false
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
         Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
@@ -56,7 +56,7 @@ Partial Class ClipboardManager
         '
         'lblRecent
         '
-        Me.lblRecent.AutoSize = True
+        Me.lblRecent.AutoSize = true
         Me.lblRecent.Location = New System.Drawing.Point(12, 9)
         Me.lblRecent.Name = "lblRecent"
         Me.lblRecent.Size = New System.Drawing.Size(120, 13)
@@ -65,89 +65,89 @@ Partial Class ClipboardManager
         '
         'btnCopy
         '
-        Me.btnCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCopy.Enabled = False
+        Me.btnCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnCopy.Enabled = false
         Me.btnCopy.Location = New System.Drawing.Point(314, 12)
         Me.btnCopy.Name = "btnCopy"
         Me.btnCopy.Size = New System.Drawing.Size(100, 23)
         Me.btnCopy.TabIndex = 2
         Me.btnCopy.Text = "Copy Item"
-        Me.btnCopy.UseVisualStyleBackColor = True
+        Me.btnCopy.UseVisualStyleBackColor = true
         '
         'btnDelete
         '
-        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Enabled = False
+        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnDelete.Enabled = false
         Me.btnDelete.Location = New System.Drawing.Point(314, 41)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(100, 23)
         Me.btnDelete.TabIndex = 3
         Me.btnDelete.Text = "Delete Item"
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.btnDelete.UseVisualStyleBackColor = true
         '
         'btnEdit
         '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Enabled = False
+        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnEdit.Enabled = false
         Me.btnEdit.Location = New System.Drawing.Point(314, 70)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(100, 23)
         Me.btnEdit.TabIndex = 4
         Me.btnEdit.Text = "Edit Item..."
-        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.btnEdit.UseVisualStyleBackColor = true
         '
         'chkAutoSort
         '
-        Me.chkAutoSort.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkAutoSort.AutoSize = True
+        Me.chkAutoSort.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkAutoSort.AutoSize = true
         Me.chkAutoSort.Location = New System.Drawing.Point(314, 99)
         Me.chkAutoSort.Name = "chkAutoSort"
         Me.chkAutoSort.Size = New System.Drawing.Size(70, 17)
         Me.chkAutoSort.TabIndex = 5
         Me.chkAutoSort.Text = "Auto-Sort"
-        Me.chkAutoSort.UseVisualStyleBackColor = True
+        Me.chkAutoSort.UseVisualStyleBackColor = true
         '
         'btnClear
         '
-        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClear.Location = New System.Drawing.Point(314, 211)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
         Me.btnClear.TabIndex = 9
         Me.btnClear.Text = "Clear List"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = true
         '
         'btnMoveUp
         '
-        Me.btnMoveUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMoveUp.Enabled = False
+        Me.btnMoveUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnMoveUp.Enabled = false
         Me.btnMoveUp.Location = New System.Drawing.Point(314, 122)
         Me.btnMoveUp.Name = "btnMoveUp"
         Me.btnMoveUp.Size = New System.Drawing.Size(100, 23)
         Me.btnMoveUp.TabIndex = 6
         Me.btnMoveUp.Text = "Move Item Up"
-        Me.btnMoveUp.UseVisualStyleBackColor = True
+        Me.btnMoveUp.UseVisualStyleBackColor = true
         '
         'btnMoveDown
         '
-        Me.btnMoveDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMoveDown.Enabled = False
+        Me.btnMoveDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnMoveDown.Enabled = false
         Me.btnMoveDown.Location = New System.Drawing.Point(314, 151)
         Me.btnMoveDown.Name = "btnMoveDown"
         Me.btnMoveDown.Size = New System.Drawing.Size(100, 23)
         Me.btnMoveDown.TabIndex = 7
         Me.btnMoveDown.Text = "Move Item Down"
-        Me.btnMoveDown.UseVisualStyleBackColor = True
+        Me.btnMoveDown.UseVisualStyleBackColor = true
         '
         'btnEnd
         '
-        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEnd.Location = New System.Drawing.Point(314, 240)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
         Me.btnEnd.TabIndex = 10
         Me.btnEnd.Text = "Close"
-        Me.btnEnd.UseVisualStyleBackColor = True
+        Me.btnEnd.UseVisualStyleBackColor = true
         '
         'TimerClipboardChecker
         '
@@ -155,22 +155,22 @@ Partial Class ClipboardManager
         '
         'btnHide
         '
-        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnHide.Location = New System.Drawing.Point(314, 182)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(100, 23)
         Me.btnHide.TabIndex = 8
         Me.btnHide.Text = "Hide"
-        Me.btnHide.UseVisualStyleBackColor = True
+        Me.btnHide.UseVisualStyleBackColor = true
         '
         'NotifyIcon
         '
-        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon.Text = "Clipboard Manager" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Click to open)"
+        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"),System.Drawing.Icon)
+        Me.NotifyIcon.Text = "Clipboard Manager"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(Click to open)"
         '
         'ClipboardManager
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(426, 275)
         Me.Controls.Add(Me.btnHide)
@@ -184,14 +184,13 @@ Partial Class ClipboardManager
         Me.Controls.Add(Me.btnCopy)
         Me.Controls.Add(Me.lblRecent)
         Me.Controls.Add(Me.lstLog)
-        Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.HelpButton = true
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "ClipboardManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Manager"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
-
+        Me.ResumeLayout(false)
+        Me.PerformLayout
     End Sub
     Friend WithEvents lstLog As System.Windows.Forms.ListBox
     Friend WithEvents lblRecent As System.Windows.Forms.Label
