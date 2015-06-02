@@ -37,6 +37,15 @@ Partial Class ClipboardManager
         Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
         Me.btnHide = New System.Windows.Forms.Button()
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.grpAddTo = New System.Windows.Forms.GroupBox()
+        Me.optAddToEnd = New System.Windows.Forms.RadioButton()
+        Me.optAddToStart = New System.Windows.Forms.RadioButton()
+        Me.grpMaxEntries = New System.Windows.Forms.GroupBox()
+        Me.txtMaxEntries = New System.Windows.Forms.NumericUpDown()
+        Me.chkMaxEntries = New System.Windows.Forms.CheckBox()
+        Me.grpAddTo.SuspendLayout
+        Me.grpMaxEntries.SuspendLayout
+        CType(Me.txtMaxEntries,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lstLog
@@ -51,7 +60,7 @@ Partial Class ClipboardManager
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
         Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstLog.Size = New System.Drawing.Size(296, 238)
+        Me.lstLog.Size = New System.Drawing.Size(296, 359)
         Me.lstLog.TabIndex = 0
         '
         'lblRecent
@@ -100,7 +109,7 @@ Partial Class ClipboardManager
         '
         Me.chkAutoSort.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.chkAutoSort.AutoSize = true
-        Me.chkAutoSort.Location = New System.Drawing.Point(314, 99)
+        Me.chkAutoSort.Location = New System.Drawing.Point(320, 157)
         Me.chkAutoSort.Name = "chkAutoSort"
         Me.chkAutoSort.Size = New System.Drawing.Size(70, 17)
         Me.chkAutoSort.TabIndex = 5
@@ -110,7 +119,7 @@ Partial Class ClipboardManager
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(314, 211)
+        Me.btnClear.Location = New System.Drawing.Point(314, 332)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
         Me.btnClear.TabIndex = 9
@@ -121,7 +130,7 @@ Partial Class ClipboardManager
         '
         Me.btnMoveUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnMoveUp.Enabled = false
-        Me.btnMoveUp.Location = New System.Drawing.Point(314, 122)
+        Me.btnMoveUp.Location = New System.Drawing.Point(314, 99)
         Me.btnMoveUp.Name = "btnMoveUp"
         Me.btnMoveUp.Size = New System.Drawing.Size(100, 23)
         Me.btnMoveUp.TabIndex = 6
@@ -132,7 +141,7 @@ Partial Class ClipboardManager
         '
         Me.btnMoveDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnMoveDown.Enabled = false
-        Me.btnMoveDown.Location = New System.Drawing.Point(314, 151)
+        Me.btnMoveDown.Location = New System.Drawing.Point(314, 128)
         Me.btnMoveDown.Name = "btnMoveDown"
         Me.btnMoveDown.Size = New System.Drawing.Size(100, 23)
         Me.btnMoveDown.TabIndex = 7
@@ -142,7 +151,8 @@ Partial Class ClipboardManager
         'btnEnd
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnEnd.Location = New System.Drawing.Point(314, 240)
+        Me.btnEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnEnd.Location = New System.Drawing.Point(314, 361)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
         Me.btnEnd.TabIndex = 10
@@ -156,7 +166,7 @@ Partial Class ClipboardManager
         'btnHide
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnHide.Location = New System.Drawing.Point(314, 182)
+        Me.btnHide.Location = New System.Drawing.Point(314, 303)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(100, 23)
         Me.btnHide.TabIndex = 8
@@ -168,16 +178,87 @@ Partial Class ClipboardManager
         Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"),System.Drawing.Icon)
         Me.NotifyIcon.Text = "Clipboard Manager"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(Click to open)"
         '
+        'grpAddTo
+        '
+        Me.grpAddTo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.grpAddTo.Controls.Add(Me.optAddToEnd)
+        Me.grpAddTo.Controls.Add(Me.optAddToStart)
+        Me.grpAddTo.Location = New System.Drawing.Point(314, 180)
+        Me.grpAddTo.Name = "grpAddTo"
+        Me.grpAddTo.Size = New System.Drawing.Size(105, 65)
+        Me.grpAddTo.TabIndex = 11
+        Me.grpAddTo.TabStop = false
+        Me.grpAddTo.Text = "Add new items to:"
+        '
+        'optAddToEnd
+        '
+        Me.optAddToEnd.AutoSize = true
+        Me.optAddToEnd.Location = New System.Drawing.Point(6, 42)
+        Me.optAddToEnd.Name = "optAddToEnd"
+        Me.optAddToEnd.Size = New System.Drawing.Size(71, 17)
+        Me.optAddToEnd.TabIndex = 1
+        Me.optAddToEnd.Text = "End of list"
+        Me.optAddToEnd.UseVisualStyleBackColor = true
+        '
+        'optAddToStart
+        '
+        Me.optAddToStart.AutoSize = true
+        Me.optAddToStart.Checked = true
+        Me.optAddToStart.Location = New System.Drawing.Point(6, 19)
+        Me.optAddToStart.Name = "optAddToStart"
+        Me.optAddToStart.Size = New System.Drawing.Size(74, 17)
+        Me.optAddToStart.TabIndex = 0
+        Me.optAddToStart.TabStop = true
+        Me.optAddToStart.Text = "Start of list"
+        Me.optAddToStart.UseVisualStyleBackColor = true
+        '
+        'grpMaxEntries
+        '
+        Me.grpMaxEntries.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.grpMaxEntries.Controls.Add(Me.txtMaxEntries)
+        Me.grpMaxEntries.Enabled = false
+        Me.grpMaxEntries.Location = New System.Drawing.Point(314, 251)
+        Me.grpMaxEntries.Name = "grpMaxEntries"
+        Me.grpMaxEntries.Size = New System.Drawing.Size(105, 46)
+        Me.grpMaxEntries.TabIndex = 12
+        Me.grpMaxEntries.TabStop = false
+        '
+        'txtMaxEntries
+        '
+        Me.txtMaxEntries.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+                        Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.txtMaxEntries.Location = New System.Drawing.Point(6, 19)
+        Me.txtMaxEntries.Name = "txtMaxEntries"
+        Me.txtMaxEntries.Size = New System.Drawing.Size(93, 20)
+        Me.txtMaxEntries.TabIndex = 0
+        Me.txtMaxEntries.Value = New Decimal(New Integer() {27, 0, 0, 0})
+        '
+        'chkMaxEntries
+        '
+        Me.chkMaxEntries.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkMaxEntries.AutoSize = true
+        Me.chkMaxEntries.Location = New System.Drawing.Point(318, 250)
+        Me.chkMaxEntries.Name = "chkMaxEntries"
+        Me.chkMaxEntries.Size = New System.Drawing.Size(84, 17)
+        Me.chkMaxEntries.TabIndex = 13
+        Me.chkMaxEntries.Text = "Max Entries:"
+        Me.chkMaxEntries.UseVisualStyleBackColor = true
+        '
         'ClipboardManager
         '
+        Me.AcceptButton = Me.btnCopy
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 275)
+        Me.CancelButton = Me.btnEnd
+        Me.ClientSize = New System.Drawing.Size(426, 396)
         Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.btnEnd)
+        Me.Controls.Add(Me.btnClear)
+        Me.Controls.Add(Me.chkMaxEntries)
+        Me.Controls.Add(Me.grpMaxEntries)
+        Me.Controls.Add(Me.grpAddTo)
         Me.Controls.Add(Me.btnMoveDown)
         Me.Controls.Add(Me.btnMoveUp)
-        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkAutoSort)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnDelete)
@@ -189,9 +270,19 @@ Partial Class ClipboardManager
         Me.Name = "ClipboardManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Manager"
+        Me.grpAddTo.ResumeLayout(false)
+        Me.grpAddTo.PerformLayout
+        Me.grpMaxEntries.ResumeLayout(false)
+        CType(Me.txtMaxEntries,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
         Me.PerformLayout
     End Sub
+    Friend optAddToEnd As System.Windows.Forms.RadioButton
+    Friend optAddToStart As System.Windows.Forms.RadioButton
+    Friend WithEvents chkMaxEntries As System.Windows.Forms.CheckBox
+    Friend WithEvents txtMaxEntries As System.Windows.Forms.NumericUpDown
+    Friend WithEvents grpMaxEntries As System.Windows.Forms.GroupBox
+    Friend WithEvents grpAddTo As System.Windows.Forms.GroupBox
     Friend WithEvents lstLog As System.Windows.Forms.ListBox
     Friend WithEvents lblRecent As System.Windows.Forms.Label
     Friend WithEvents btnCopy As System.Windows.Forms.Button
