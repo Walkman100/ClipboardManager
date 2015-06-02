@@ -83,6 +83,10 @@
         CheckButtons
     End Sub
     
+    Private Sub chkMaxEntries_CheckedChanged() Handles chkMaxEntries.CheckedChanged
+        grpMaxEntries.Enabled = chkMaxEntries.Checked
+    End Sub
+
     Private Sub btnHide_Click() Handles btnHide.Click
         Me.Hide()
         NotifyIcon.Visible = True
@@ -105,8 +109,19 @@
     Private Sub TimerClipboardChecker_Tick() Handles TimerClipboardChecker.Tick
         toReplace = Clipboard.GetText
         If Not lstLog.Items.Contains(toReplace) Then
-            lstLog.Items.Insert(0, toReplace)
+            If optAddToStart.Checked = True Then
+                lstLog.Items.Insert(0, toReplace)
+            Else
+                lstLog.Items.Add(toReplace)
+            End If
             CheckButtons
+        End If
+        If chkMaxEntries.Checked Then
+            If lstLog.Items.Count > txtMaxEntries.Text Then
+                Do Until lstLog.Items.Count <= txtMaxEntries.Text
+                    lstLog.Items.RemoveAt(txtMaxEntries.Text)
+                Loop
+            End If
         End If
     End Sub
 End Class
