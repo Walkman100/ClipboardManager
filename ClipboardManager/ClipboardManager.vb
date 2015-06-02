@@ -89,12 +89,12 @@
 
     Private Sub btnHide_Click() Handles btnHide.Click
         Me.Hide()
-        NotifyIcon.Visible = True
+        TrayIcon.Visible = True
     End Sub
 
-    Private Sub NotifyIcon_Click() Handles NotifyIcon.Click
+    Private Sub TrayIcon_Click() Handles TrayIcon.Click
         Me.Show()
-        NotifyIcon.Visible = False
+        TrayIcon.Visible = False
     End Sub
 
     Private Sub btnClear_Click() Handles btnClear.Click

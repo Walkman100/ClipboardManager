@@ -36,7 +36,7 @@ Partial Class ClipboardManager
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.TimerClipboardChecker = New System.Windows.Forms.Timer(Me.components)
         Me.btnHide = New System.Windows.Forms.Button()
-        Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.grpAddTo = New System.Windows.Forms.GroupBox()
         Me.optAddToEnd = New System.Windows.Forms.RadioButton()
         Me.optAddToStart = New System.Windows.Forms.RadioButton()
@@ -173,10 +173,10 @@ Partial Class ClipboardManager
         Me.btnHide.Text = "Hide"
         Me.btnHide.UseVisualStyleBackColor = true
         '
-        'NotifyIcon
+        'TrayIcon
         '
-        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"),System.Drawing.Icon)
-        Me.NotifyIcon.Text = "Clipboard Manager"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(Click to open)"
+        Me.TrayIcon.Icon = CType(resources.GetObject("TrayIcon.Icon"),System.Drawing.Icon)
+        Me.TrayIcon.Text = "Clipboard Manager"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(Click to open)"
         '
         'grpAddTo
         '
@@ -295,6 +295,6 @@ Partial Class ClipboardManager
     Friend WithEvents btnEnd As System.Windows.Forms.Button
     Friend WithEvents TimerClipboardChecker As System.Windows.Forms.Timer
     Friend WithEvents btnHide As System.Windows.Forms.Button
-    Friend WithEvents NotifyIcon As System.Windows.Forms.NotifyIcon
+    Friend WithEvents TrayIcon As System.Windows.Forms.NotifyIcon
 
 End Class

@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("This program keeps a list of anything that went into the clipboard, allowing you to paste an item from it")> 
 <Assembly: AssemblyCompany("DeavmiOSS")> 
 <Assembly: AssemblyProduct("ClipboardManager")> 
-<Assembly: AssemblyCopyright("FOSS from Walkman 2014")> 
+<Assembly: AssemblyCopyright("FOSS from Walkman 2014-15")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
