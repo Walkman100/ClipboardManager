@@ -9,7 +9,7 @@
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
         Private Sub StartFromFile(sender As Object, e As ApplicationServices.StartupNextInstanceEventArgs) Handles Me.StartupNextInstance
-            ClipboardSaver.ShowClipboardSaver(Nothing, Nothing)
+            ClipboardSaver.ShowClipboardSaver()
             For Each s As String In e.CommandLine
                 If s.ToLower.StartsWith("hide") Then
                     ClipboardSaver.HideClipboardSaver()

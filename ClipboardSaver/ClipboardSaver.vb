@@ -1,7 +1,7 @@
 ﻿Public Class ClipboardSaver
     Dim ScreenCapture As System.Drawing.Image
 
-    Private Sub ClipboardSaver_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Sub ClipboardSaver_Load() Handles MyBase.Load
         txtSaveLocation.Text = My.Settings.LastDir
         If txtSaveLocation.Text = "" Then
             txtSaveLocation.Text = Environment.GetEnvironmentVariable("USERPROFILE") & "\Pictures\Screenshots"
@@ -42,12 +42,12 @@
         End If
     End Sub
 
-    Private Sub SelectFolder(sender As Object, e As EventArgs) Handles btnBrowse.Click, NotificationContextMenuBrowse.Click
+    Sub SelectFolder() Handles btnBrowse.Click, NotificationContextMenuBrowse.Click
         FolderBrowserDialog.ShowDialog()
         txtSaveLocation.Text = FolderBrowserDialog.SelectedPath
     End Sub
 
-    Private Sub OpenFolder(sender As Object, e As EventArgs) Handles btnOpen.Click, NotificationContextMenuOpen.Click
+    Sub OpenFolder() Handles btnOpen.Click, NotificationContextMenuOpen.Click
         Process.Start(txtSaveLocation.Text)
     End Sub
 
@@ -56,20 +56,20 @@
         NotificationIcon.Visible = True
     End Sub
 
-    Sub ShowClipboardSaver(sender As Object, e As EventArgs) Handles NotificationContextMenuShow.Click, NotificationIcon.DoubleClick
+    Sub ShowClipboardSaver() Handles NotificationContextMenuShow.Click, NotificationIcon.DoubleClick
         Me.Show()
         NotificationIcon.Visible = False
     End Sub
 
-    Private Sub CloseClipboardSaver(sender As Object, e As EventArgs) Handles btnEnd.Click, NotificationContextMenuEnd.Click
+    Sub CloseClipboardSaver() Handles btnEnd.Click, NotificationContextMenuEnd.Click
         Application.Exit()
     End Sub
 
-    Private Sub txtSaveLocation_TextChanged(sender As Object, e As EventArgs) Handles txtSaveLocation.TextChanged
+    Sub txtSaveLocation_TextChanged() Handles txtSaveLocation.TextChanged
         My.Settings.LastDir = txtSaveLocation.Text
     End Sub
 
-    Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
+    Sub TimerClipboardChecker_Tick() Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsImage = True Then
             SaveClipboardImage
             Try
@@ -107,14 +107,15 @@
     End Sub
     
     Sub SaveDropdownCapture_Click() Handles SaveDropdownCapture.Click
-        
+        SendKeys.SendWait("{PRTSC}")
     End Sub
     
     Sub SaveDropdownCaptureSave_Click() Handles SaveDropdownCaptureSave.Click
-        
+        SaveDropdownCapture_Click
+        SaveDropdownClipboard_Click
     End Sub
 
-    Sub SaveSettings Handles chkShowSave.Click, chkShowClear.Click, _
+    Sub SaveSettings() Handles chkShowSave.Click, chkShowClear.Click, _
             txtDateDelimiter1.KeyUp, txtDateDelimiter2.KeyUp, txtDateTimeDelimiter.KeyUp, _
             txtTimeDelimiter1.KeyUp, txtTimeDelimiter2.KeyUp, txtTimeDelimiter3.KeyUp, txtExtension.KeyUp
         
