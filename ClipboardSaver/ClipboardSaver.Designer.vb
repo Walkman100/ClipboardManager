@@ -64,19 +64,19 @@ Partial Class ClipboardSaver
         Me.SaveDropdownClipboard = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveDropdownCapture = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveDropdownCaptureSave = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotificationContextMenu.SuspendLayout()
-        Me.grpNameFormat.SuspendLayout()
-        Me.SaveToolStrip.SuspendLayout()
-        Me.SuspendLayout()
+        Me.NotificationContextMenu.SuspendLayout
+        Me.grpNameFormat.SuspendLayout
+        Me.SaveToolStrip.SuspendLayout
+        Me.SuspendLayout
         '
         'txtSaveLocation
         '
         Me.txtSaveLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtSaveLocation.Location = New System.Drawing.Point(12, 12)
         Me.txtSaveLocation.Name = "txtSaveLocation"
-        Me.txtSaveLocation.ReadOnly = True
-        Me.txtSaveLocation.Size = New System.Drawing.Size(423, 20)
+        Me.txtSaveLocation.ReadOnly = true
+        Me.txtSaveLocation.Size = New System.Drawing.Size(442, 20)
         Me.txtSaveLocation.TabIndex = 0
         '
         'btnBrowse
@@ -86,45 +86,45 @@ Partial Class ClipboardSaver
         Me.btnBrowse.Size = New System.Drawing.Size(75, 23)
         Me.btnBrowse.TabIndex = 1
         Me.btnBrowse.Text = "Browse..."
-        Me.btnBrowse.UseVisualStyleBackColor = True
+        Me.btnBrowse.UseVisualStyleBackColor = true
         '
         'btnStartStop
         '
         Me.btnStartStop.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnStartStop.Location = New System.Drawing.Point(174, 38)
         Me.btnStartStop.Name = "btnStartStop"
         Me.btnStartStop.Size = New System.Drawing.Size(180, 23)
         Me.btnStartStop.TabIndex = 3
         Me.btnStartStop.Text = "Start Checking for Images"
-        Me.btnStartStop.UseVisualStyleBackColor = True
+        Me.btnStartStop.UseVisualStyleBackColor = true
         '
         'btnHide
         '
-        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnHide.Location = New System.Drawing.Point(360, 38)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(75, 23)
         Me.btnHide.TabIndex = 4
         Me.btnHide.Text = "Hide"
-        Me.btnHide.UseVisualStyleBackColor = True
+        Me.btnHide.UseVisualStyleBackColor = true
         '
         'btnEnd
         '
-        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnEnd.Location = New System.Drawing.Point(441, 38)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(75, 23)
         Me.btnEnd.TabIndex = 5
         Me.btnEnd.Text = "Close"
-        Me.btnEnd.UseVisualStyleBackColor = True
+        Me.btnEnd.UseVisualStyleBackColor = true
         '
         'NotificationIcon
         '
         Me.NotificationIcon.ContextMenuStrip = Me.NotificationContextMenu
-        Me.NotificationIcon.Icon = CType(resources.GetObject("NotificationIcon.Icon"), System.Drawing.Icon)
-        Me.NotificationIcon.Text = "Clipboard Image Saver" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Not checking for images."
+        Me.NotificationIcon.Icon = CType(resources.GetObject("NotificationIcon.Icon"),System.Drawing.Icon)
+        Me.NotificationIcon.Text = "Clipboard Image Saver"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"Not checking for images."
         '
         'NotificationContextMenu
         '
@@ -176,9 +176,6 @@ Partial Class ClipboardSaver
         '
         Me.FolderBrowserDialog.Description = "Select a folder to save images to:"
         '
-        'TimerClipboardChecker
-        '
-        '
         'btnOpen
         '
         Me.btnOpen.Location = New System.Drawing.Point(93, 38)
@@ -186,7 +183,7 @@ Partial Class ClipboardSaver
         Me.btnOpen.Size = New System.Drawing.Size(75, 23)
         Me.btnOpen.TabIndex = 2
         Me.btnOpen.Text = "Open"
-        Me.btnOpen.UseVisualStyleBackColor = True
+        Me.btnOpen.UseVisualStyleBackColor = true
         '
         'txtDateDelimiter1
         '
@@ -199,7 +196,7 @@ Partial Class ClipboardSaver
         '
         'lblYear
         '
-        Me.lblYear.AutoSize = True
+        Me.lblYear.AutoSize = true
         Me.lblYear.Location = New System.Drawing.Point(6, 22)
         Me.lblYear.Name = "lblYear"
         Me.lblYear.Size = New System.Drawing.Size(29, 13)
@@ -208,7 +205,7 @@ Partial Class ClipboardSaver
         '
         'lblMonth
         '
-        Me.lblMonth.AutoSize = True
+        Me.lblMonth.AutoSize = true
         Me.lblMonth.Location = New System.Drawing.Point(67, 22)
         Me.lblMonth.Name = "lblMonth"
         Me.lblMonth.Size = New System.Drawing.Size(37, 13)
@@ -218,7 +215,7 @@ Partial Class ClipboardSaver
         'grpNameFormat
         '
         Me.grpNameFormat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpNameFormat.Controls.Add(Me.txtExtension)
         Me.grpNameFormat.Controls.Add(Me.lblMillisecond)
         Me.grpNameFormat.Controls.Add(Me.txtTimeDelimiter3)
@@ -237,13 +234,13 @@ Partial Class ClipboardSaver
         Me.grpNameFormat.Name = "grpNameFormat"
         Me.grpNameFormat.Size = New System.Drawing.Size(504, 45)
         Me.grpNameFormat.TabIndex = 6
-        Me.grpNameFormat.TabStop = False
+        Me.grpNameFormat.TabStop = false
         Me.grpNameFormat.Text = "File name format"
         '
         'txtExtension
         '
         Me.txtExtension.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtExtension.Location = New System.Drawing.Point(468, 19)
         Me.txtExtension.MaxLength = 6
         Me.txtExtension.Name = "txtExtension"
@@ -253,7 +250,7 @@ Partial Class ClipboardSaver
         '
         'lblMillisecond
         '
-        Me.lblMillisecond.AutoSize = True
+        Me.lblMillisecond.AutoSize = true
         Me.lblMillisecond.Location = New System.Drawing.Point(403, 22)
         Me.lblMillisecond.Name = "lblMillisecond"
         Me.lblMillisecond.Size = New System.Drawing.Size(59, 13)
@@ -271,7 +268,7 @@ Partial Class ClipboardSaver
         '
         'lblSecond
         '
-        Me.lblSecond.AutoSize = True
+        Me.lblSecond.AutoSize = true
         Me.lblSecond.Location = New System.Drawing.Point(327, 22)
         Me.lblSecond.Name = "lblSecond"
         Me.lblSecond.Size = New System.Drawing.Size(44, 13)
@@ -289,7 +286,7 @@ Partial Class ClipboardSaver
         '
         'lblMinute
         '
-        Me.lblMinute.AutoSize = True
+        Me.lblMinute.AutoSize = true
         Me.lblMinute.Location = New System.Drawing.Point(256, 22)
         Me.lblMinute.Name = "lblMinute"
         Me.lblMinute.Size = New System.Drawing.Size(39, 13)
@@ -307,7 +304,7 @@ Partial Class ClipboardSaver
         '
         'lblHour
         '
-        Me.lblHour.AutoSize = True
+        Me.lblHour.AutoSize = true
         Me.lblHour.Location = New System.Drawing.Point(194, 22)
         Me.lblHour.Name = "lblHour"
         Me.lblHour.Size = New System.Drawing.Size(30, 13)
@@ -334,7 +331,7 @@ Partial Class ClipboardSaver
         '
         'lblDay
         '
-        Me.lblDay.AutoSize = True
+        Me.lblDay.AutoSize = true
         Me.lblDay.Location = New System.Drawing.Point(136, 22)
         Me.lblDay.Name = "lblDay"
         Me.lblDay.Size = New System.Drawing.Size(26, 13)
@@ -343,35 +340,35 @@ Partial Class ClipboardSaver
         '
         'chkShowSave
         '
-        Me.chkShowSave.AutoSize = True
-        Me.chkShowSave.Checked = True
+        Me.chkShowSave.AutoSize = true
+        Me.chkShowSave.Checked = true
         Me.chkShowSave.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkShowSave.Location = New System.Drawing.Point(12, 118)
         Me.chkShowSave.Name = "chkShowSave"
         Me.chkShowSave.Size = New System.Drawing.Size(110, 17)
         Me.chkShowSave.TabIndex = 7
         Me.chkShowSave.Text = "Show Save errors"
-        Me.chkShowSave.UseVisualStyleBackColor = True
+        Me.chkShowSave.UseVisualStyleBackColor = true
         '
         'chkShowClear
         '
-        Me.chkShowClear.AutoSize = True
+        Me.chkShowClear.AutoSize = true
         Me.chkShowClear.Location = New System.Drawing.Point(128, 118)
         Me.chkShowClear.Name = "chkShowClear"
         Me.chkShowClear.Size = New System.Drawing.Size(109, 17)
         Me.chkShowClear.TabIndex = 8
         Me.chkShowClear.Text = "Show Clear errors"
-        Me.chkShowClear.UseVisualStyleBackColor = True
+        Me.chkShowClear.UseVisualStyleBackColor = true
         '
         'lnkShowOptions
         '
-        Me.lnkShowOptions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lnkShowOptions.AutoSize = True
+        Me.lnkShowOptions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lnkShowOptions.AutoSize = true
         Me.lnkShowOptions.Location = New System.Drawing.Point(410, 119)
         Me.lnkShowOptions.Name = "lnkShowOptions"
         Me.lnkShowOptions.Size = New System.Drawing.Size(106, 13)
         Me.lnkShowOptions.TabIndex = 9
-        Me.lnkShowOptions.TabStop = True
+        Me.lnkShowOptions.TabStop = true
         Me.lnkShowOptions.Text = "Show launch options"
         '
         'SaveToolStrip
@@ -421,7 +418,7 @@ Partial Class ClipboardSaver
         'ClipboardSaver
         '
         Me.AcceptButton = Me.btnStartStop
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
         Me.ClientSize = New System.Drawing.Size(528, 147)
@@ -436,19 +433,18 @@ Partial Class ClipboardSaver
         Me.Controls.Add(Me.btnStartStop)
         Me.Controls.Add(Me.btnBrowse)
         Me.Controls.Add(Me.txtSaveLocation)
-        Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.HelpButton = true
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "ClipboardSaver"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Image Saver"
-        Me.NotificationContextMenu.ResumeLayout(False)
-        Me.grpNameFormat.ResumeLayout(False)
-        Me.grpNameFormat.PerformLayout()
+        Me.NotificationContextMenu.ResumeLayout(false)
+        Me.grpNameFormat.ResumeLayout(false)
+        Me.grpNameFormat.PerformLayout
         Me.SaveToolStrip.ResumeLayout(false)
         Me.SaveToolStrip.PerformLayout
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
-
+        Me.ResumeLayout(false)
+        Me.PerformLayout
     End Sub
     Private WithEvents SaveDropdownCaptureSave As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents SaveDropdownCapture As System.Windows.Forms.ToolStripMenuItem

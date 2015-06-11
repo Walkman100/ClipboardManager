@@ -87,27 +87,24 @@
                 Clipboard.Clear()
             Catch ex As Exception
                 If chkShowClear.Checked = True Then
-                    MsgBox("Error clearing clipboard after saving! (This can probably be ignored) The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Information, "Error Clearing Clipboard")
+                    MsgBox("Error clearing clipboard after saving! (This can probably be ignored) The error was:" & vbNewLine & _
+                                ex.ToString, MsgBoxStyle.Information, "Error Clearing Clipboard")
                 End If
             End Try
         End If
     End Sub
 
     Private Sub lnkShowOptions_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkShowOptions.LinkClicked
-        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & "autostart: Start checking for images automatically" & vbNewLine & "ChangeCheckState [Only when started when an istance is already running]: Starts or stops checking for images depending on checking state before command is run", MsgBoxStyle.Information, "Clipboard image saver Launch options")
+        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & _
+               "autostart: Start checking for images automatically" & vbNewLine & _
+               "ChangeCheckState [Only when started when an instance is already running]: Starts or stops checking for images depending on checking state before command is run", _
+               MsgBoxStyle.Information, "Clipboard image saver Launch options")
     End Sub
 
-    Private Sub chkShowSave_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSave.Click
-        My.Settings.ShowSave = chkShowSave.Checked
-    End Sub
-
-    Private Sub chkShowClear_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowClear.Click
-        My.Settings.ShowClear = chkShowClear.Checked
-    End Sub
-
-    Private Sub ClipboardSaver_KeyPress(sender As Object, e As KeyEventArgs) Handles _
+    Sub SaveSettings Handles chkShowSave.Click, chkShowClear.Click, _
             txtDateDelimiter1.KeyUp, txtDateDelimiter2.KeyUp, txtDateTimeDelimiter.KeyUp, _
             txtTimeDelimiter1.KeyUp, txtTimeDelimiter2.KeyUp, txtTimeDelimiter3.KeyUp, txtExtension.KeyUp
+        
         My.Settings.ShowSave = chkShowSave.Checked
         My.Settings.ShowClear = chkShowClear.Checked
         My.Settings.DateDelimiter1 = txtDateDelimiter1.Text
@@ -135,5 +132,17 @@
         Else
             MsgBox("No image found in Clipboard!", MsgBoxStyle.Critical, "No image in clipboard")
         End If
+    End Sub
+    
+    Sub SaveDropdownClipboard_Click(sender As Object, e As EventArgs) Handles SaveDropdownClipboard.Click
+        
+    End Sub
+    
+    Sub SaveDropdownCapture_Click(sender As Object, e As EventArgs) Handles SaveDropdownCapture.Click
+        
+    End Sub
+    
+    Sub SaveDropdownCaptureSave_Click(sender As Object, e As EventArgs) Handles SaveDropdownCaptureSave.Click
+        
     End Sub
 End Class
