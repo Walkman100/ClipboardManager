@@ -71,18 +71,7 @@
 
     Private Sub TimerClipboardChecker_Tick(sender As Object, e As EventArgs) Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsImage = True Then
-            Try
-                ScreenCapture = Clipboard.GetImage
-                ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
-                                   txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
-                                   txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
-            Catch ex As Exception
-                If chkShowSave.Checked = True Then
-                    TimerClipboardChecker.Stop()
-                    MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
-                    TimerClipboardChecker.Start()
-                End If
-            End Try
+            SaveClipboardImage
             Try
                 Clipboard.Clear()
             Catch ex As Exception
@@ -93,12 +82,36 @@
             End Try
         End If
     End Sub
-
-    Private Sub lnkShowOptions_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkShowOptions.LinkClicked
-        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & _
-               "autostart: Start checking for images automatically" & vbNewLine & _
-               "ChangeCheckState [Only when started when an instance is already running]: Starts or stops checking for images depending on checking state before command is run", _
-               MsgBoxStyle.Information, "Clipboard image saver Launch options")
+    
+    Sub SaveClipboardImage(Optional alwaysShow As Boolean = False)
+        Try
+            ScreenCapture = Clipboard.GetImage
+            ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
+                               txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
+                               txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
+        Catch ex As Exception
+            If chkShowSave.Checked or alwaysShow Then
+                TimerClipboardChecker.Stop()
+                MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
+                TimerClipboardChecker.Start()
+            End If
+        End Try
+    End Sub
+    
+    Sub SaveDropdownClipboard_Click() Handles SaveDropdownClipboard.Click
+        If Clipboard.ContainsImage = True Then
+            SaveClipboardImage(True)
+        Else
+            MsgBox("No image found in Clipboard!", MsgBoxStyle.Critical, "No image in clipboard")
+        End If
+    End Sub
+    
+    Sub SaveDropdownCapture_Click() Handles SaveDropdownCapture.Click
+        
+    End Sub
+    
+    Sub SaveDropdownCaptureSave_Click() Handles SaveDropdownCaptureSave.Click
+        
     End Sub
 
     Sub SaveSettings Handles chkShowSave.Click, chkShowClear.Click, _
@@ -117,32 +130,10 @@
         My.Settings.Save()
     End Sub
 
-    Private Sub btnSaveOnce_Click(sender As Object, e As EventArgs) 'Handles btnSaveOnce.Click
-        If Clipboard.ContainsImage = True Then
-            Try
-                ScreenCapture = Clipboard.GetImage
-                ScreenCapture.Save(txtSaveLocation.Text & "\" & DateTime.Now.Year & txtDateDelimiter1.Text & DateTime.Now.Month & txtDateDelimiter2.Text & DateTime.Now.Day & _
-                                   txtDateTimeDelimiter.Text & DateTime.Now.Hour & txtTimeDelimiter1.Text & DateTime.Now.Minute & txtTimeDelimiter2.Text & DateTime.Now.Second & _
-                                   txtTimeDelimiter3.Text & DateTime.Now.Millisecond & txtExtension.Text)
-            Catch ex As Exception
-                TimerClipboardChecker.Stop()
-                MsgBox("Error saving screenshot! The error was:" & vbNewLine & ex.ToString, MsgBoxStyle.Critical, "Error Saving Screenshot!")
-                TimerClipboardChecker.Start()
-            End Try
-        Else
-            MsgBox("No image found in Clipboard!", MsgBoxStyle.Critical, "No image in clipboard")
-        End If
-    End Sub
-    
-    Sub SaveDropdownClipboard_Click(sender As Object, e As EventArgs) Handles SaveDropdownClipboard.Click
-        
-    End Sub
-    
-    Sub SaveDropdownCapture_Click(sender As Object, e As EventArgs) Handles SaveDropdownCapture.Click
-        
-    End Sub
-    
-    Sub SaveDropdownCaptureSave_Click(sender As Object, e As EventArgs) Handles SaveDropdownCaptureSave.Click
-        
+    Sub lnkShowOptions_LinkClicked() Handles lnkShowOptions.LinkClicked
+        MsgBox("hide: Starts Clipboard Image Saver in the taskbar" & vbNewLine & _
+               "autostart: Start checking for images automatically" & vbNewLine & _
+               "ChangeCheckState [Only when started when an instance is already running]: Starts or stops checking for images depending on checking state before command is run", _
+               MsgBoxStyle.Information, "Clipboard image saver Launch options")
     End Sub
 End Class
