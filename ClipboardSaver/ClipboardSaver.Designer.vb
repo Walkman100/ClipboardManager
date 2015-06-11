@@ -59,9 +59,14 @@ Partial Class ClipboardSaver
         Me.chkShowSave = New System.Windows.Forms.CheckBox()
         Me.chkShowClear = New System.Windows.Forms.CheckBox()
         Me.lnkShowOptions = New System.Windows.Forms.LinkLabel()
-        Me.btnSaveOnce = New System.Windows.Forms.Button()
+        Me.SaveToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.SaveDropdown = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.SaveDropdownClipboard = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveDropdownCapture = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveDropdownCaptureSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationContextMenu.SuspendLayout()
         Me.grpNameFormat.SuspendLayout()
+        Me.SaveToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtSaveLocation
@@ -369,15 +374,49 @@ Partial Class ClipboardSaver
         Me.lnkShowOptions.TabStop = True
         Me.lnkShowOptions.Text = "Show launch options"
         '
-        'btnSaveOnce
+        'SaveToolStrip
         '
-        Me.btnSaveOnce.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSaveOnce.Location = New System.Drawing.Point(441, 10)
-        Me.btnSaveOnce.Name = "btnSaveOnce"
-        Me.btnSaveOnce.Size = New System.Drawing.Size(75, 23)
-        Me.btnSaveOnce.TabIndex = 10
-        Me.btnSaveOnce.Text = "Save Once"
-        Me.btnSaveOnce.UseVisualStyleBackColor = True
+        Me.SaveToolStrip.AllowMerge = false
+        Me.SaveToolStrip.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.SaveToolStrip.AutoSize = false
+        Me.SaveToolStrip.CanOverflow = false
+        Me.SaveToolStrip.Dock = System.Windows.Forms.DockStyle.None
+        Me.SaveToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.SaveToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveDropdown})
+        Me.SaveToolStrip.Location = New System.Drawing.Point(457, 9)
+        Me.SaveToolStrip.Name = "SaveToolStrip"
+        Me.SaveToolStrip.Size = New System.Drawing.Size(62, 26)
+        Me.SaveToolStrip.TabIndex = 12
+        '
+        'SaveDropdown
+        '
+        Me.SaveDropdown.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveDropdownClipboard, Me.SaveDropdownCapture, Me.SaveDropdownCaptureSave})
+        Me.SaveDropdown.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.SaveDropdown.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveDropdown.Name = "SaveDropdown"
+        Me.SaveDropdown.Size = New System.Drawing.Size(61, 23)
+        Me.SaveDropdown.Text = "Save..."
+        '
+        'SaveDropdownClipboard
+        '
+        Me.SaveDropdownClipboard.AutoToolTip = true
+        Me.SaveDropdownClipboard.Name = "SaveDropdownClipboard"
+        Me.SaveDropdownClipboard.Size = New System.Drawing.Size(328, 22)
+        Me.SaveDropdownClipboard.Text = "Save to file from Clipboard"
+        '
+        'SaveDropdownCapture
+        '
+        Me.SaveDropdownCapture.AutoToolTip = true
+        Me.SaveDropdownCapture.Name = "SaveDropdownCapture"
+        Me.SaveDropdownCapture.Size = New System.Drawing.Size(328, 22)
+        Me.SaveDropdownCapture.Text = "Capture screen to Clipboard"
+        '
+        'SaveDropdownCaptureSave
+        '
+        Me.SaveDropdownCaptureSave.AutoToolTip = true
+        Me.SaveDropdownCaptureSave.Name = "SaveDropdownCaptureSave"
+        Me.SaveDropdownCaptureSave.Size = New System.Drawing.Size(328, 22)
+        Me.SaveDropdownCaptureSave.Text = "Capture screen to Clipboard and save to file"
         '
         'ClipboardSaver
         '
@@ -386,7 +425,7 @@ Partial Class ClipboardSaver
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
         Me.ClientSize = New System.Drawing.Size(528, 147)
-        Me.Controls.Add(Me.btnSaveOnce)
+        Me.Controls.Add(Me.SaveToolStrip)
         Me.Controls.Add(Me.lnkShowOptions)
         Me.Controls.Add(Me.chkShowClear)
         Me.Controls.Add(Me.chkShowSave)
@@ -405,10 +444,17 @@ Partial Class ClipboardSaver
         Me.NotificationContextMenu.ResumeLayout(False)
         Me.grpNameFormat.ResumeLayout(False)
         Me.grpNameFormat.PerformLayout()
+        Me.SaveToolStrip.ResumeLayout(false)
+        Me.SaveToolStrip.PerformLayout
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+    Private WithEvents SaveDropdownCaptureSave As System.Windows.Forms.ToolStripMenuItem
+    Private WithEvents SaveDropdownCapture As System.Windows.Forms.ToolStripMenuItem
+    Private WithEvents SaveDropdownClipboard As System.Windows.Forms.ToolStripMenuItem
+    Private SaveDropdown As System.Windows.Forms.ToolStripDropDownButton
+    Private SaveToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents txtSaveLocation As System.Windows.Forms.TextBox
     Friend WithEvents btnBrowse As System.Windows.Forms.Button
     Friend WithEvents btnStartStop As System.Windows.Forms.Button
@@ -444,6 +490,5 @@ Partial Class ClipboardSaver
     Friend WithEvents chkShowSave As System.Windows.Forms.CheckBox
     Friend WithEvents chkShowClear As System.Windows.Forms.CheckBox
     Friend WithEvents lnkShowOptions As System.Windows.Forms.LinkLabel
-    Friend WithEvents btnSaveOnce As System.Windows.Forms.Button
 
 End Class

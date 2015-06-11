@@ -120,7 +120,7 @@
         My.Settings.Save()
     End Sub
 
-    Private Sub btnSaveOnce_Click(sender As Object, e As EventArgs) Handles btnSaveOnce.Click
+    Private Sub btnSaveOnce_Click(sender As Object, e As EventArgs) 'Handles btnSaveOnce.Click
         If Clipboard.ContainsImage = True Then
             Try
                 ScreenCapture = Clipboard.GetImage
