@@ -1,7 +1,7 @@
 ﻿Public Class ClipboardSaver
     Dim ScreenCapture As System.Drawing.Image
 
-    Sub ClipboardSaver_Load() Handles MyBase.Load
+    Sub ClipboardSaver_Load() Handles Me.Shown
         txtSaveLocation.Text = My.Settings.LastDir
         If txtSaveLocation.Text = "" Then
             txtSaveLocation.Text = Environment.GetEnvironmentVariable("USERPROFILE") & "\Pictures\Screenshots"
@@ -43,8 +43,10 @@
     End Sub
 
     Sub SelectFolder() Handles btnBrowse.Click, NotificationContextMenuBrowse.Click
-        FolderBrowserDialog.ShowDialog()
-        txtSaveLocation.Text = FolderBrowserDialog.SelectedPath
+        FolderBrowserDialog.SelectedPath = txtSaveLocation.Text
+        If FolderBrowserDialog.ShowDialog() = DialogResult.OK Then
+            txtSaveLocation.Text = FolderBrowserDialog.SelectedPath
+        End If
     End Sub
 
     Sub OpenFolder() Handles btnOpen.Click, NotificationContextMenuOpen.Click
@@ -58,6 +60,8 @@
 
     Sub ShowClipboardSaver() Handles NotificationContextMenuShow.Click, NotificationIcon.DoubleClick
         Me.Show()
+        Me.WindowState = FormWindowState.Normal
+        Me.BringToFront
         NotificationIcon.Visible = False
     End Sub
 
