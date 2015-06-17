@@ -130,46 +130,47 @@ Partial Class ClipboardSaver
         '
         Me.NotificationContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotificationContextMenuBrowse, Me.NotificationContextMenuOpen, Me.NotificationContextMenuSeperator1, Me.NotificationContextMenuStartStop, Me.NotificationContextMenuSeperator2, Me.NotificationContextMenuShow, Me.NotificationContextMenuEnd})
         Me.NotificationContextMenu.Name = "NotificationContextMenu"
-        Me.NotificationContextMenu.Size = New System.Drawing.Size(256, 126)
+        Me.NotificationContextMenu.Size = New System.Drawing.Size(263, 148)
         '
         'NotificationContextMenuBrowse
         '
         Me.NotificationContextMenuBrowse.Name = "NotificationContextMenuBrowse"
-        Me.NotificationContextMenuBrowse.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuBrowse.Size = New System.Drawing.Size(262, 22)
         Me.NotificationContextMenuBrowse.Text = "Change Screenshot Directory..."
         '
         'NotificationContextMenuOpen
         '
         Me.NotificationContextMenuOpen.Name = "NotificationContextMenuOpen"
-        Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuOpen.Size = New System.Drawing.Size(262, 22)
         Me.NotificationContextMenuOpen.Text = "Open screenshot folder"
         '
         'NotificationContextMenuSeperator1
         '
         Me.NotificationContextMenuSeperator1.Name = "NotificationContextMenuSeperator1"
-        Me.NotificationContextMenuSeperator1.Size = New System.Drawing.Size(252, 6)
+        Me.NotificationContextMenuSeperator1.Size = New System.Drawing.Size(259, 6)
         '
         'NotificationContextMenuStartStop
         '
         Me.NotificationContextMenuStartStop.Name = "NotificationContextMenuStartStop"
-        Me.NotificationContextMenuStartStop.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuStartStop.Size = New System.Drawing.Size(262, 22)
         Me.NotificationContextMenuStartStop.Text = "Start Checking for Images"
         '
         'NotificationContextMenuSeperator2
         '
         Me.NotificationContextMenuSeperator2.Name = "NotificationContextMenuSeperator2"
-        Me.NotificationContextMenuSeperator2.Size = New System.Drawing.Size(252, 6)
+        Me.NotificationContextMenuSeperator2.Size = New System.Drawing.Size(259, 6)
         '
         'NotificationContextMenuShow
         '
+        Me.NotificationContextMenuShow.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold)
         Me.NotificationContextMenuShow.Name = "NotificationContextMenuShow"
-        Me.NotificationContextMenuShow.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuShow.Size = New System.Drawing.Size(262, 22)
         Me.NotificationContextMenuShow.Text = "Show Clipboard Image Saver"
         '
         'NotificationContextMenuEnd
         '
         Me.NotificationContextMenuEnd.Name = "NotificationContextMenuEnd"
-        Me.NotificationContextMenuEnd.Size = New System.Drawing.Size(255, 22)
+        Me.NotificationContextMenuEnd.Size = New System.Drawing.Size(262, 22)
         Me.NotificationContextMenuEnd.Text = "Close"
         '
         'FolderBrowserDialog
