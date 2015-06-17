@@ -107,14 +107,16 @@
     End Sub
 
     Private Sub TimerClipboardChecker_Tick() Handles TimerClipboardChecker.Tick
-        toReplace = Clipboard.GetText
-        If Not lstLog.Items.Contains(toReplace) Then
-            If optAddToStart.Checked = True Then
-                lstLog.Items.Insert(0, toReplace)
-            Else
-                lstLog.Items.Add(toReplace)
+        If Clipboard.ContainsText Then
+            toReplace = Clipboard.GetText
+            If Not lstLog.Items.Contains(toReplace) Then
+                If optAddToStart.Checked = True Then
+                    lstLog.Items.Insert(0, toReplace)
+                Else
+                    lstLog.Items.Add(toReplace)
+                End If
+                CheckButtons
             End If
-            CheckButtons
         End If
         If chkMaxEntries.Checked Then
             If lstLog.Items.Count > txtMaxEntries.Text Then
