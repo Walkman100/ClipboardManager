@@ -1,4 +1,5 @@
-# Clipboard Image Saver [![Build status](https://ci.appveyor.com/api/projects/status/g32gra4rxcwlrwqr)](https://ci.appveyor.com/project/Walkman100/clipboard-projects) [![Clipboard Image Saver icon](https://raw.githubusercontent.com/Walkman100/Clipboard-Projects/master/ClipboardSaver/paste.ico "Clipboard Image Saver icon")](https://raw.githubusercontent.com/Walkman100/Clipboard-Projects/master/ClipboardSaver/paste.ico)
+# Clipboard Image Saver [![Build status](https://ci.appveyor.com/api/projects/status/g32gra4rxcwlrwqr)](https://ci.appveyor.com/project/Walkman100/clipboard-projects) [![Clipboard Image Saver icon][CIS Icon]][CIS Icon]
+  [CIS Icon]: https://raw.githubusercontent.com/Walkman100/Clipboard-Projects/master/ClipboardSaver/paste.ico
 This is a simple VB.Net program that saves any images that are set into the clipboard to a specified file.
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Walkman100/Walkman?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -10,8 +11,10 @@ This program gives functionality of the screenshot function on a mobile device. 
 ## Screenshots
 Clipboard Image Saver Main Window:
 
-[![Clipboard Image Saver Main Window](http://walkman100.github.io/Walkman/Images/WindowsProjectsScreenshots/ClipboardProjects/SaverMainWindow.png "Clipboard Image Saver Main Window")](http://walkman100.github.io/Walkman/Images/WindowsProjectsScreenshots/ClipboardProjects/SaverMainWindow.png)
+[![Clipboard Image Saver Main Window][MainWindow]][MainWindow]
+  [MainWindow]: http://walkman100.github.io/images/Screenshots/My_Projects/ClipboardProjects/SaverMainWindow.png
 
 Clipboard Image Saver on Linux through Mono:
 
-[![Clipboard Image Saver on Linux through Mono](http://walkman100.github.io/Walkman/Images/WindowsProjectsScreenshots/ClipboardProjects/SaverLinuxMono.png "Clipboard Image Saver on Linux through Mono")](http://walkman100.github.io/Walkman/Images/WindowsProjectsScreenshots/ClipboardProjects/SaverLinuxMono.png)
+[![Clipboard Image Saver on Linux through Mono][LinuxMono]][LinuxMono]
+  [LinuxMono]: http://walkman100.github.io/images/Screenshots/My_Projects/ClipboardProjects/SaverLinuxMono.png
