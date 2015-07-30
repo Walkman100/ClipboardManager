@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Clipboard Manager")> 
 <Assembly: AssemblyDescription("This program keeps a list of anything that went into the clipboard, allowing you to paste an item from it")> 
-<Assembly: AssemblyCompany("DeavmiOSS")> 
+<Assembly: AssemblyCompany("WalkmanOSS")> 
 <Assembly: AssemblyProduct("ClipboardManager")> 
 <Assembly: AssemblyCopyright("FOSS from Walkman 2014-15")> 
 <Assembly: AssemblyTrademark("")> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.1.0")> 
+<Assembly: AssemblyFileVersion("1.0.1.0")> 
