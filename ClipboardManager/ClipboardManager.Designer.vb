@@ -23,7 +23,6 @@ Partial Class ClipboardManager
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ClipboardManager))
         Me.lstLog = New System.Windows.Forms.ListBox()
         Me.lblRecent = New System.Windows.Forms.Label()
         Me.btnCopy = New System.Windows.Forms.Button()
@@ -176,7 +175,7 @@ Partial Class ClipboardManager
         '
         'TrayIcon
         '
-        Me.TrayIcon.Icon = CType(resources.GetObject("TrayIcon.Icon"),System.Drawing.Icon)
+        Me.TrayIcon.Icon = Global.ClipboardManager.My.Resources.Resources.animationmanager
         Me.TrayIcon.Text = "Clipboard Manager"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(Click to open)"
         '
         'grpAddTo
@@ -258,7 +257,7 @@ Partial Class ClipboardManager
         Me.AcceptButton = Me.btnCopy
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.btnEnd
+        Me.CancelButton = Me.btnHide
         Me.ClientSize = New System.Drawing.Size(426, 425)
         Me.Controls.Add(Me.btnLaunch)
         Me.Controls.Add(Me.btnHide)
@@ -276,7 +275,7 @@ Partial Class ClipboardManager
         Me.Controls.Add(Me.lblRecent)
         Me.Controls.Add(Me.lstLog)
         Me.HelpButton = true
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.Icon = Global.ClipboardManager.My.Resources.Resources.animationmanager
         Me.Name = "ClipboardManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Manager"
