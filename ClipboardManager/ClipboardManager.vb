@@ -11,12 +11,14 @@
             btnCopy.Enabled = False
             btnDelete.Enabled = False
             btnEdit.Enabled = False
+            btnLaunch.Enabled = False
             btnMoveDown.Enabled = False
             btnMoveUp.Enabled = False
         Else
             btnCopy.Enabled = True
             btnDelete.Enabled = True
             btnEdit.Enabled = True
+            btnLaunch.Enabled = True
             If lstLog.SelectedIndex = 0 Then
                 btnMoveUp.Enabled = False
             Else
@@ -59,6 +61,33 @@
             End If
         End If
         CheckButtons
+    End Sub
+    
+    Private Sub btnLaunch_Click() Handles btnLaunch.Click
+        If lstLog.SelectedIndex = -1 Then
+            MsgBox("No item selected")
+        Else
+            Try
+                Shell(lstLog.SelectedItem, AppWinStyle.NormalFocus)
+            Catch ex As System.IO.FileNotFoundException
+                Try
+                    Process.Start(lstLog.SelectedItem)
+                Catch ex2 As System.ComponentModel.Win32Exception
+                    If ex2.Message = "The operation was canceled by the user" Then
+                    ElseIf ex2.Message = "The system cannot find the file specified" Then
+                        MsgBox("File could not be found!", MsgBoxStyle.Exclamation)
+                    ElseIf ex2.Message = "No application is associated with the specified file for this operation" Then
+                        MsgBox("Associated program could not be found!", MsgBoxStyle.Exclamation)
+                    Else
+                        MsgBox("There was an error: " & ex.ToString, MsgBoxStyle.Exclamation)
+                    End If
+                Catch ex2 As Exception
+                    MsgBox("There was an error: " & ex.ToString, MsgBoxStyle.Exclamation)
+                End Try
+            Catch ex As Exception
+                MsgBox("There was an error: " & ex.ToString, MsgBoxStyle.Exclamation)
+            End Try
+        End If
     End Sub
 
     Private Sub btnMoveUp_Click() Handles btnMoveUp.Click
