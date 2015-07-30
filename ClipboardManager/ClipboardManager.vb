@@ -1,4 +1,6 @@
-﻿Public Class ClipboardManager
+﻿Imports System.IO.File
+
+Public Class ClipboardManager
     Dim toReplace As String
     Dim tmpSelIndex As Integer
     
@@ -13,6 +15,15 @@
         Else
             txtMaxEntries.Value = My.Settings.MaxEntries
             chkMaxEntries.Checked = True
+        End If
+        If Not My.Settings.ContinuousStoragePath = "" Then
+            SavingSettings.txtContinuous.Text = My.Settings.ContinuousStoragePath
+            SavingSettings.chkContinuous.Checked = True
+        End If
+        If Not My.Settings.PersistantStoragePath = "" Then
+            SavingSettings.txtPersistant.Text = My.Settings.PersistantStoragePath
+            SavingSettings.chkPersistant.Checked = True
+            'ReadPersistant()
         End If
     End Sub
 
@@ -148,6 +159,13 @@
     
     Sub btnSaving_Click() Handles btnSaving.Click
         SavingSettings.ShowDialog
+        If SavingSettings.chkContinuous.Checked Then
+            If Not Exists(SavingSettings.txtContinuous.Text) Then Create(SavingSettings.txtContinuous.Text).Close
+        End If
+        If SavingSettings.chkPersistant.Checked Then
+            If Not Exists(SavingSettings.txtPersistant.Text) Then Create(SavingSettings.txtPersistant.Text).Close
+            'WritePersistant()
+        End If
     End Sub
 
     Private Sub btnHide_Click() Handles btnHide.Click
@@ -174,6 +192,9 @@
         If Clipboard.ContainsText Then
             toReplace = Clipboard.GetText
             If Not lstLog.Items.Contains(toReplace) Then
+                If SavingSettings.chkContinuous.Checked Then
+                    AppendAllText(SavingSettings.txtContinuous.Text, toReplace & vbNewLine)
+                End If
                 If optAddToStart.Checked = True Then
                     lstLog.Items.Insert(0, toReplace)
                 Else

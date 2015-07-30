@@ -111,16 +111,16 @@ Public Class SavingSettings
         Me.ResumeLayout(false)
         Me.PerformLayout
         
-        sfdContinuous.DefaultExt = "xml"
-        sfdContinuous.FileName = "ClipboardManager.ClipboardLog.xml"
-        sfdContinuous.Filter = "XML files|*.xml|All files|*.*"
+        sfdContinuous.DefaultExt = "txt"
+        sfdContinuous.FileName = "ClipboardManager.ClipboardLog.txt"
+        sfdContinuous.Filter = "Text files|*.txt|All files|*.*"
         sfdContinuous.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
         sfdContinuous.OverwritePrompt = False
         sfdContinuous.Title = "Select a file to save the clipboard to:"
         
-        sfdPersistant.DefaultExt = "xml"
-        sfdPersistant.FileName = "ClipboardManager.CurrentList.xml"
-        sfdPersistant.Filter = "XML files|*.xml|All files|*.*"
+        sfdPersistant.DefaultExt = "txt"
+        sfdPersistant.FileName = "ClipboardManager.CurrentList.txt"
+        sfdPersistant.Filter = "Text files|*.txt|All files|*.*"
         sfdPersistant.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
         sfdPersistant.OverwritePrompt = False
         sfdPersistant.Title = "Select a file to keep up-to-date with ClipboardManager:"
@@ -140,6 +140,7 @@ Public Class SavingSettings
     Sub chkContinuous_CheckedChanged()
         grpContinuous.Enabled = chkContinuous.Checked
         If chkContinuous.Checked And txtContinuous.Text = "" Then btnContinous_Click
+        If Not chkContinuous.Checked Then My.Settings.ContinuousStoragePath = ""
     End Sub
     
     Sub btnContinous_Click()
@@ -148,6 +149,7 @@ Public Class SavingSettings
         End If
         If sfdContinuous.ShowDialog = DialogResult.OK Then
             txtContinuous.Text = sfdContinuous.FileName
+            My.Settings.ContinuousStoragePath = sfdContinuous.FileName
         ElseIf txtContinuous.Text = ""
             chkContinuous.Checked = False
         End If
@@ -156,6 +158,7 @@ Public Class SavingSettings
     Sub chkPersistant_CheckedChanged()
         grpPersistant.Enabled = chkPersistant.Checked
         If chkPersistant.Checked And txtPersistant.Text = "" Then btnPersistant_Click
+        If Not chkPersistant.Checked Then My.Settings.PersistantStoragePath = ""
     End Sub
     
     Sub btnPersistant_Click()
@@ -164,6 +167,7 @@ Public Class SavingSettings
         End If
         If sfdPersistant.ShowDialog = DialogResult.OK Then
             txtPersistant.Text = sfdPersistant.FileName
+            My.Settings.PersistantStoragePath = sfdPersistant.FileName
         ElseIf txtPersistant.Text = ""
             chkPersistant.Checked = False
         End If

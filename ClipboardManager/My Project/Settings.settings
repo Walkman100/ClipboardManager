@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SettingsFile CurrentProfile="(Default)" UseMySettingsClassName="true" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
+<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="" UseMySettingsClassName="true" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
   <Profiles>
     <Profile Name="(Default)" />
   </Profiles>
@@ -10,8 +10,14 @@
     <Setting Name="AutoSort" Type="System.Boolean" Scope="User" Roaming="false">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ContinuousStoragePath" Type="System.String" Scope="User" Roaming="false">
+      <Value Profile="(Default)" />
+    </Setting>
     <Setting Name="MaxEntries" Type="System.Int32" Scope="User" Roaming="false">
       <Value Profile="(Default)">28</Value>
+    </Setting>
+    <Setting Name="PersistantStoragePath" Type="System.String" Scope="User" Roaming="false">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
