@@ -145,6 +145,10 @@
         My.Settings.AddNewItemsToStart = optAddToStart.Checked
         My.Settings.Save
     End Sub
+    
+    Sub btnSaving_Click() Handles btnSaving.Click
+        SavingSettings.ShowDialog
+    End Sub
 
     Private Sub btnHide_Click() Handles btnHide.Click
         Me.Hide()

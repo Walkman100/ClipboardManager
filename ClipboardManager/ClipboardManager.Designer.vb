@@ -43,6 +43,7 @@ Partial Class ClipboardManager
         Me.txtMaxEntries = New System.Windows.Forms.NumericUpDown()
         Me.chkMaxEntries = New System.Windows.Forms.CheckBox()
         Me.btnLaunch = New System.Windows.Forms.Button()
+        Me.btnSaving = New System.Windows.Forms.Button()
         Me.grpAddTo.SuspendLayout
         Me.grpMaxEntries.SuspendLayout
         CType(Me.txtMaxEntries,System.ComponentModel.ISupportInitialize).BeginInit
@@ -60,7 +61,7 @@ Partial Class ClipboardManager
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
         Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstLog.Size = New System.Drawing.Size(296, 388)
+        Me.lstLog.Size = New System.Drawing.Size(296, 417)
         Me.lstLog.TabIndex = 0
         '
         'lblRecent
@@ -119,7 +120,7 @@ Partial Class ClipboardManager
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(314, 361)
+        Me.btnClear.Location = New System.Drawing.Point(314, 390)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
         Me.btnClear.TabIndex = 9
@@ -152,7 +153,7 @@ Partial Class ClipboardManager
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnEnd.Location = New System.Drawing.Point(314, 390)
+        Me.btnEnd.Location = New System.Drawing.Point(314, 419)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
         Me.btnEnd.TabIndex = 10
@@ -166,7 +167,7 @@ Partial Class ClipboardManager
         'btnHide
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnHide.Location = New System.Drawing.Point(314, 332)
+        Me.btnHide.Location = New System.Drawing.Point(314, 361)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(100, 23)
         Me.btnHide.TabIndex = 8
@@ -252,13 +253,24 @@ Partial Class ClipboardManager
         Me.btnLaunch.Text = "Launch Item"
         Me.btnLaunch.UseVisualStyleBackColor = true
         '
+        'btnSaving
+        '
+        Me.btnSaving.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnSaving.Location = New System.Drawing.Point(314, 332)
+        Me.btnSaving.Name = "btnSaving"
+        Me.btnSaving.Size = New System.Drawing.Size(100, 23)
+        Me.btnSaving.TabIndex = 15
+        Me.btnSaving.Text = "Saving options..."
+        Me.btnSaving.UseVisualStyleBackColor = true
+        '
         'ClipboardManager
         '
         Me.AcceptButton = Me.btnCopy
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnHide
-        Me.ClientSize = New System.Drawing.Size(426, 425)
+        Me.ClientSize = New System.Drawing.Size(426, 454)
+        Me.Controls.Add(Me.btnSaving)
         Me.Controls.Add(Me.btnLaunch)
         Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.btnEnd)
@@ -286,6 +298,7 @@ Partial Class ClipboardManager
         Me.ResumeLayout(false)
         Me.PerformLayout
     End Sub
+    Friend WithEvents btnSaving As System.Windows.Forms.Button
     Friend WithEvents btnLaunch As System.Windows.Forms.Button
     Friend optAddToEnd As System.Windows.Forms.RadioButton
     Friend WithEvents optAddToStart As System.Windows.Forms.RadioButton
