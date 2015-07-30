@@ -23,7 +23,7 @@ Public Class ClipboardManager
         If Not My.Settings.PersistantStoragePath = "" Then
             SavingSettings.txtPersistant.Text = My.Settings.PersistantStoragePath
             SavingSettings.chkPersistant.Checked = True
-            'ReadPersistant()
+            ReadPersistant()
         End If
     End Sub
 
@@ -51,6 +51,7 @@ Public Class ClipboardManager
                 btnMoveDown.Enabled = True
             End If
         End If
+        WritePersistant()
     End Sub
 
     Private Sub btnCopy_Click() Handles btnCopy.Click
@@ -164,7 +165,7 @@ Public Class ClipboardManager
         End If
         If SavingSettings.chkPersistant.Checked Then
             If Not Exists(SavingSettings.txtPersistant.Text) Then Create(SavingSettings.txtPersistant.Text).Close
-            'WritePersistant()
+            WritePersistant()
         End If
     End Sub
 
@@ -200,7 +201,6 @@ Public Class ClipboardManager
                 Else
                     lstLog.Items.Add(toReplace)
                 End If
-                CheckButtons
             End If
         End If
         If chkMaxEntries.Checked Then
@@ -209,6 +209,25 @@ Public Class ClipboardManager
                     lstLog.Items.RemoveAt(txtMaxEntries.Text)
                 Loop
             End If
+        End If
+        CheckButtons
+    End Sub
+    
+    Sub ReadPersistant
+        If SavingSettings.chkPersistant.Checked Then
+            lstLog.Items.Clear
+            For Each item In IO.File.ReadAllLines(SavingSettings.txtPersistant.Text)
+                lstLog.Items.Add(item)
+            Next
+        End If
+    End Sub
+    
+    Sub WritePersistant
+        If SavingSettings.chkPersistant.Checked And SavingSettings.txtPersistant.Text <> "" Then
+            WriteAllText(SavingSettings.txtPersistant.Text, "")
+            For Each item In lstLog.Items
+                AppendAllText(SavingSettings.txtPersistant.Text, item & vbNewLine)
+            Next
         End If
     End Sub
 End Class
