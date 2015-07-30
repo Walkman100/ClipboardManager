@@ -4,6 +4,16 @@
     
     Private Sub ClipboardManager_Load() Handles MyBase.Load
         TimerClipboardChecker.Start()
+        chkAutoSort.Checked = My.Settings.AutoSort
+        optAddToStart.Checked = My.Settings.AddNewItemsToStart
+        optAddToEnd.Checked = Not My.Settings.AddNewItemsToStart
+        If My.Settings.MaxEntries = 0 Then
+            txtMaxEntries.Value = 28
+            chkMaxEntries.Checked = False
+        Else
+            txtMaxEntries.Value = My.Settings.MaxEntries
+            chkMaxEntries.Checked = True
+        End If
     End Sub
 
     Private Sub CheckButtons() Handles lstLog.SelectedIndexChanged
@@ -109,11 +119,31 @@
 
     Private Sub chkAutoSort_CheckedChanged() Handles chkAutoSort.CheckedChanged
         lstLog.Sorted = chkAutoSort.Checked
+        My.Settings.AutoSort = chkAutoSort.Checked
+        My.Settings.Save
         CheckButtons
     End Sub
     
     Private Sub chkMaxEntries_CheckedChanged() Handles chkMaxEntries.CheckedChanged
         grpMaxEntries.Enabled = chkMaxEntries.Checked
+        If chkMaxEntries.Checked Then
+            My.Settings.MaxEntries = txtMaxEntries.Value
+        Else
+            My.Settings.MaxEntries = 0
+        End If
+        My.Settings.Save
+    End Sub
+    
+    Sub txtMaxEntries_ValueChanged() Handles txtMaxEntries.ValueChanged
+        If chkMaxEntries.Checked Then
+            My.Settings.MaxEntries = txtMaxEntries.Value
+            My.Settings.Save
+        End If
+    End Sub
+    
+    Sub optAddToStart_CheckedChanged() Handles optAddToStart.CheckedChanged
+        My.Settings.AddNewItemsToStart = optAddToStart.Checked
+        My.Settings.Save
     End Sub
 
     Private Sub btnHide_Click() Handles btnHide.Click
@@ -132,6 +162,7 @@
     End Sub
 
     Private Sub btnEnd_Click() Handles btnEnd.Click
+        My.Settings.Save
         Application.Exit()
     End Sub
 
