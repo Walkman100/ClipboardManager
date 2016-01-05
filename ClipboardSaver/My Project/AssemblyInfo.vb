@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Clipboard Image Saver")> 
 <Assembly: AssemblyDescription("Clipboard Image Saver")> 
-<Assembly: AssemblyCompany("DeavmiOSS")> 
+<Assembly: AssemblyCompany("WalkmanOSS")> 
 <Assembly: AssemblyProduct("ClipboardImageSaver")> 
-<Assembly: AssemblyCopyright("FOSS from Walkman 2014")> 
+<Assembly: AssemblyCopyright("FOSS from Walkman 2014-15")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
