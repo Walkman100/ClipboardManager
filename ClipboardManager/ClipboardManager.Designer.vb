@@ -119,7 +119,7 @@ Partial Class ClipboardManager
         '
         'btnClear
         '
-        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClear.Location = New System.Drawing.Point(314, 390)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
@@ -151,7 +151,7 @@ Partial Class ClipboardManager
         '
         'btnEnd
         '
-        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnEnd.Location = New System.Drawing.Point(314, 419)
         Me.btnEnd.Name = "btnEnd"
@@ -166,7 +166,8 @@ Partial Class ClipboardManager
         '
         'btnHide
         '
-        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnHide.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnHide.Location = New System.Drawing.Point(314, 361)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(100, 23)
@@ -245,6 +246,7 @@ Partial Class ClipboardManager
         '
         'btnLaunch
         '
+        Me.btnLaunch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnLaunch.Enabled = false
         Me.btnLaunch.Location = New System.Drawing.Point(314, 99)
         Me.btnLaunch.Name = "btnLaunch"
@@ -255,7 +257,7 @@ Partial Class ClipboardManager
         '
         'btnSaving
         '
-        Me.btnSaving.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnSaving.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnSaving.Location = New System.Drawing.Point(314, 332)
         Me.btnSaving.Name = "btnSaving"
         Me.btnSaving.Size = New System.Drawing.Size(100, 23)
