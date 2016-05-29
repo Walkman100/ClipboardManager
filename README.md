@@ -1,5 +1,5 @@
 # Clipboard Projects
-This is a collection of VB.Net programs that work with the clipboard. To be merged into [Deavmi/Clippy](http://github.com/Deavmi/Clippy).
+This is a collection of VB.Net programs that work with the clipboard. To be merged into [Deavmi/Clippy](https://github.com/Walkman-Mirror/Clippy).
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Walkman100/Walkman?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
