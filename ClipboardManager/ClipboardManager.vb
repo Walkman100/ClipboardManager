@@ -1,4 +1,4 @@
-﻿Imports System.IO.File
+Imports System.IO.File
 
 Public Class ClipboardManager
     Dim toReplace As String

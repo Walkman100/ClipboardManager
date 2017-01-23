@@ -1,4 +1,4 @@
-﻿Public Class ClipboardSaver
+Public Class ClipboardSaver
     Dim ScreenCapture As System.Drawing.Image
 
     Sub ClipboardSaver_Load() Handles Me.Shown
