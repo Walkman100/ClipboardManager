@@ -18,6 +18,7 @@ Public Class ClipboardSaver
         txtTimeDelimiter2.Text = My.Settings.TimeDelimiter2
         txtTimeDelimiter3.Text = My.Settings.TimeDelimiter3
         txtExtension.Text = My.Settings.Extension
+        lblVersion.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build
         For Each s As String In My.Application.CommandLineArgs
             If s.ToLower.StartsWith("hide") Then
                 HideClipboardSaver()

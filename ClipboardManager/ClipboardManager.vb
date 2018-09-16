@@ -6,6 +6,7 @@ Public Class ClipboardManager
     
     Private Sub ClipboardManager_Load() Handles MyBase.Load
         TimerClipboardChecker.Start()
+        lblVersion.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build
         chkAutoSort.Checked = My.Settings.AutoSort
         optAddToStart.Checked = My.Settings.AddNewItemsToStart
         optAddToEnd.Checked = Not My.Settings.AddNewItemsToStart

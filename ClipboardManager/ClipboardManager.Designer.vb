@@ -44,6 +44,7 @@ Partial Class ClipboardManager
         Me.chkMaxEntries = New System.Windows.Forms.CheckBox()
         Me.btnLaunch = New System.Windows.Forms.Button()
         Me.btnSaving = New System.Windows.Forms.Button()
+        Me.lblVersion = New System.Windows.Forms.Label()
         Me.grpAddTo.SuspendLayout
         Me.grpMaxEntries.SuspendLayout
         CType(Me.txtMaxEntries,System.ComponentModel.ISupportInitialize).BeginInit
@@ -265,6 +266,17 @@ Partial Class ClipboardManager
         Me.btnSaving.Text = "Saving options..."
         Me.btnSaving.UseVisualStyleBackColor = true
         '
+        'lblVersion
+        '
+        Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lblVersion.AutoSize = true
+        Me.lblVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 6!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblVersion.Location = New System.Drawing.Point(404, 444)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(21, 9)
+        Me.lblVersion.TabIndex = 16
+        Me.lblVersion.Text = "1.0.0"
+        '
         'ClipboardManager
         '
         Me.AcceptButton = Me.btnCopy
@@ -272,6 +284,7 @@ Partial Class ClipboardManager
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnHide
         Me.ClientSize = New System.Drawing.Size(426, 454)
+        Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.btnSaving)
         Me.Controls.Add(Me.btnLaunch)
         Me.Controls.Add(Me.btnHide)
@@ -300,6 +313,7 @@ Partial Class ClipboardManager
         Me.ResumeLayout(false)
         Me.PerformLayout
     End Sub
+    Private lblVersion As System.Windows.Forms.Label
     Friend WithEvents btnSaving As System.Windows.Forms.Button
     Friend WithEvents btnLaunch As System.Windows.Forms.Button
     Friend optAddToEnd As System.Windows.Forms.RadioButton

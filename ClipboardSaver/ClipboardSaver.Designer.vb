@@ -64,6 +64,7 @@ Partial Class ClipboardSaver
         Me.SaveDropdownClipboard = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveDropdownCapture = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveDropdownCaptureSave = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblVersion = New System.Windows.Forms.Label()
         Me.NotificationContextMenu.SuspendLayout
         Me.grpNameFormat.SuspendLayout
         Me.SaveToolStrip.SuspendLayout
@@ -416,6 +417,17 @@ Partial Class ClipboardSaver
         Me.SaveDropdownCaptureSave.Size = New System.Drawing.Size(328, 22)
         Me.SaveDropdownCaptureSave.Text = "Capture screen to Clipboard and save to file"
         '
+        'lblVersion
+        '
+        Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lblVersion.AutoSize = true
+        Me.lblVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 6!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblVersion.Location = New System.Drawing.Point(506, 137)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(21, 9)
+        Me.lblVersion.TabIndex = 13
+        Me.lblVersion.Text = "1.0.0"
+        '
         'ClipboardSaver
         '
         Me.AcceptButton = Me.btnStartStop
@@ -423,6 +435,7 @@ Partial Class ClipboardSaver
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnEnd
         Me.ClientSize = New System.Drawing.Size(528, 147)
+        Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.SaveToolStrip)
         Me.Controls.Add(Me.lnkShowOptions)
         Me.Controls.Add(Me.chkShowClear)
@@ -447,6 +460,7 @@ Partial Class ClipboardSaver
         Me.ResumeLayout(false)
         Me.PerformLayout
     End Sub
+    Private lblVersion As System.Windows.Forms.Label
     Private WithEvents SaveDropdownCaptureSave As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents SaveDropdownCapture As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents SaveDropdownClipboard As System.Windows.Forms.ToolStripMenuItem
