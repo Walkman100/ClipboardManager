@@ -3,11 +3,9 @@ Imports System.IO
 Imports System.Xml
 
 Public Class ClipboardManager
-    Dim toReplace As String
-    Dim tmpSelIndex As Integer
-    
     Dim configFileName As String = "ClipboardManager.xml"
     Dim Friend configFilePath As String = ""
+    Dim safeToSave As Boolean = False
     
     Private Sub ClipboardManager_Load() Handles MyBase.Load
         lblVersion.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build
@@ -33,6 +31,8 @@ Public Class ClipboardManager
         If File.Exists(configFilePath) Then
             ReadConfig()
         End If
+        
+        safeToSave = True
         
         TimerClipboardChecker.Start()
     End Sub
@@ -63,7 +63,7 @@ Public Class ClipboardManager
         End If
         WritePersistant()
     End Sub
-
+    
     Private Sub btnCopy_Click() Handles btnCopy.Click
         If lstLog.SelectedIndex = -1 Then
             MsgBox("No item selected")
@@ -72,7 +72,7 @@ Public Class ClipboardManager
         End If
         CheckButtons
     End Sub
-
+    
     Private Sub btnDelete_Click() Handles btnDelete.Click
         If lstLog.SelectedIndex = -1 Then
             MsgBox("No item selected")
@@ -81,7 +81,9 @@ Public Class ClipboardManager
         End If
         CheckButtons
     End Sub
-
+    
+    Dim toReplace As String
+    
     Private Sub btnEdit_Click() Handles btnEdit.Click
         If lstLog.SelectedIndex = -1 Then
             MsgBox("No item selected")
@@ -121,7 +123,8 @@ Public Class ClipboardManager
             End Try
         End If
     End Sub
-
+    
+    Dim tmpSelIndex As Integer
     Private Sub btnMoveUp_Click() Handles btnMoveUp.Click
         tmpSelIndex = lstLog.SelectedIndex
         toReplace = lstLog.Items.Item(tmpSelIndex - 1)
@@ -130,7 +133,7 @@ Public Class ClipboardManager
         toReplace = ""
         CheckButtons
     End Sub
-
+    
     Private Sub btnMoveDown_Click() Handles btnMoveDown.Click
         tmpSelIndex = lstLog.SelectedIndex
         toReplace = lstLog.Items.Item(tmpSelIndex + 1)
@@ -138,7 +141,7 @@ Public Class ClipboardManager
         lstLog.Items.Insert(tmpSelIndex, toReplace)
         CheckButtons
     End Sub
-
+    
     Private Sub chkAutoSort_CheckedChanged() Handles chkAutoSort.CheckedChanged
         lstLog.Sorted = chkAutoSort.Checked
         SaveConfig()
@@ -168,26 +171,26 @@ Public Class ClipboardManager
             WritePersistant()
         End If
     End Sub
-
+    
     Private Sub btnHide_Click() Handles btnHide.Click
         Me.Hide()
         TrayIcon.Visible = True
     End Sub
-
+    
     Private Sub TrayIcon_Click() Handles TrayIcon.Click
         Me.Show()
         TrayIcon.Visible = False
     End Sub
-
+    
     Private Sub btnClear_Click() Handles btnClear.Click
         lstLog.Items.Clear()
         CheckButtons
     End Sub
-
+    
     Private Sub btnEnd_Click() Handles btnEnd.Click
         Application.Exit()
     End Sub
-
+    
     Private Sub TimerClipboardChecker_Tick() Handles TimerClipboardChecker.Tick
         If Clipboard.ContainsText Then
             toReplace = Clipboard.GetText
@@ -286,6 +289,13 @@ Public Class ClipboardManager
     End Sub
     
     Sub SaveConfig()
+        If safeToSave <> True Then
+            Exit Sub
+        End If
+        If Me.Created <> True Then
+            Exit Sub
+        End If
+        
         Dim XMLwSettings As New XmlWriterSettings()
         XMLwSettings.Indent = True
         Dim writer As XmlWriter = XmlWriter.Create(configFilePath, XMLwSettings)
