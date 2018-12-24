@@ -19,6 +19,8 @@ Public Class SavingSettings
         Me.grpPersistant = New System.Windows.Forms.GroupBox()
         Me.btnPersistant = New System.Windows.Forms.Button()
         Me.txtPersistant = New System.Windows.Forms.TextBox()
+        Me.sfdContinuous = New System.Windows.Forms.SaveFileDialog()
+        Me.sfdPersistant = New System.Windows.Forms.SaveFileDialog()
         Me.grpContinuous.SuspendLayout
         Me.grpPersistant.SuspendLayout
         Me.SuspendLayout
@@ -26,11 +28,10 @@ Public Class SavingSettings
         Me.chkContinuous.AutoSize = true
         Me.chkContinuous.Location = New System.Drawing.Point(21, 11)
         Me.chkContinuous.Name = "chkContinuous"
-        Me.chkContinuous.Size = New System.Drawing.Size(327, 17)
+        Me.chkContinuous.Size = New System.Drawing.Size(326, 17)
         Me.chkContinuous.TabIndex = 15
         Me.chkContinuous.Text = "Continuous saving: Save any text change in the clipboard to file"
         Me.chkContinuous.UseVisualStyleBackColor = true
-        AddHandler Me.chkContinuous.CheckedChanged, AddressOf Me.chkContinuous_CheckedChanged
         'grpContinuous
         Me.grpContinuous.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpContinuous.Controls.Add(Me.btnContinous)
@@ -49,7 +50,6 @@ Public Class SavingSettings
         Me.btnContinous.TabIndex = 1
         Me.btnContinous.Text = "Browse..."
         Me.btnContinous.UseVisualStyleBackColor = true
-        AddHandler Me.btnContinous.Click, AddressOf Me.btnContinous_Click
         'txtContinuous
         Me.txtContinuous.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtContinuous.Location = New System.Drawing.Point(6, 22)
@@ -65,7 +65,6 @@ Public Class SavingSettings
         Me.chkPersistant.TabIndex = 17
         Me.chkPersistant.Text = "Persistant storage: keep the file up-to-date with ClipboardManager"
         Me.chkPersistant.UseVisualStyleBackColor = true
-        AddHandler Me.chkPersistant.CheckedChanged, AddressOf Me.chkPersistant_CheckedChanged
         'grpPersistant
         Me.grpPersistant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpPersistant.Controls.Add(Me.btnPersistant)
@@ -84,7 +83,6 @@ Public Class SavingSettings
         Me.btnPersistant.TabIndex = 3
         Me.btnPersistant.Text = "Browse..."
         Me.btnPersistant.UseVisualStyleBackColor = true
-        AddHandler Me.btnPersistant.Click, AddressOf Me.btnPersistant_Click
         'txtPersistant
         Me.txtPersistant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtPersistant.Location = New System.Drawing.Point(6, 22)
@@ -92,6 +90,20 @@ Public Class SavingSettings
         Me.txtPersistant.ReadOnly = true
         Me.txtPersistant.Size = New System.Drawing.Size(280, 20)
         Me.txtPersistant.TabIndex = 2
+        'sfdContinuous
+        Me.sfdContinuous.DefaultExt = "txt"
+        Me.sfdContinuous.FileName = "ClipboardManager.ClipboardLog.txt"
+        Me.sfdContinuous.Filter = "Text files|*.txt|All files|*.*"
+        Me.sfdContinuous.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
+        Me.sfdContinuous.OverwritePrompt = false
+        Me.sfdContinuous.Title = "Select a file to save the clipboard to:"
+        'sfdPersistant
+        Me.sfdPersistant.DefaultExt = "txt"
+        Me.sfdPersistant.FileName = "ClipboardManager.CurrentList.txt"
+        Me.sfdPersistant.Filter = "Text files|*.txt|All files|*.*"
+        Me.sfdPersistant.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
+        Me.sfdPersistant.OverwritePrompt = false
+        Me.sfdPersistant.Title = "Select a file to keep up-to-date with ClipboardManager:"
         'SavingSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -110,39 +122,24 @@ Public Class SavingSettings
         Me.grpPersistant.PerformLayout
         Me.ResumeLayout(false)
         Me.PerformLayout
-        
-        sfdContinuous.DefaultExt = "txt"
-        sfdContinuous.FileName = "ClipboardManager.ClipboardLog.txt"
-        sfdContinuous.Filter = "Text files|*.txt|All files|*.*"
-        sfdContinuous.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
-        sfdContinuous.OverwritePrompt = False
-        sfdContinuous.Title = "Select a file to save the clipboard to:"
-        
-        sfdPersistant.DefaultExt = "txt"
-        sfdPersistant.FileName = "ClipboardManager.CurrentList.txt"
-        sfdPersistant.Filter = "Text files|*.txt|All files|*.*"
-        sfdPersistant.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
-        sfdPersistant.OverwritePrompt = False
-        sfdPersistant.Title = "Select a file to keep up-to-date with ClipboardManager:"
     End Sub
     Friend txtPersistant As System.Windows.Forms.TextBox
-    Private btnPersistant As System.Windows.Forms.Button
+    Private WithEvents btnPersistant As System.Windows.Forms.Button
     Friend txtContinuous As System.Windows.Forms.TextBox
-    Private btnContinous As System.Windows.Forms.Button
+    Private WithEvents btnContinous As System.Windows.Forms.Button
     Private grpPersistant As System.Windows.Forms.GroupBox
-    Friend chkPersistant As System.Windows.Forms.CheckBox
+    Friend WithEvents chkPersistant As System.Windows.Forms.CheckBox
     Private grpContinuous As System.Windows.Forms.GroupBox
-    Friend chkContinuous As System.Windows.Forms.CheckBox
+    Friend WithEvents chkContinuous As System.Windows.Forms.CheckBox
+    Private sfdContinuous As System.Windows.Forms.SaveFileDialog
+    Private sfdPersistant As System.Windows.Forms.SaveFileDialog
     
-    Dim sfdContinuous As New SaveFileDialog
-    Dim sfdPersistant As New SaveFileDialog
-    
-    Sub chkContinuous_CheckedChanged()
+    Sub chkContinuous_CheckedChanged() Handles chkContinuous.CheckedChanged
         grpContinuous.Enabled = chkContinuous.Checked
         If chkContinuous.Checked And txtContinuous.Text = "" Then btnContinous_Click
     End Sub
     
-    Sub btnContinous_Click()
+    Sub btnContinous_Click() Handles btnContinous.Click
         If Not IO.Directory.Exists(sfdContinuous.InitialDirectory) Then
             IO.Directory.CreateDirectory(sfdContinuous.InitialDirectory)
         End If
@@ -153,12 +150,12 @@ Public Class SavingSettings
         End If
     End Sub
     
-    Sub chkPersistant_CheckedChanged()
+    Sub chkPersistant_CheckedChanged() Handles chkPersistant.CheckedChanged
         grpPersistant.Enabled = chkPersistant.Checked
         If chkPersistant.Checked And txtPersistant.Text = "" Then btnPersistant_Click
     End Sub
     
-    Sub btnPersistant_Click()
+    Sub btnPersistant_Click() Handles btnPersistant.Click
         If Not IO.Directory.Exists(sfdPersistant.InitialDirectory) Then
             IO.Directory.CreateDirectory(sfdPersistant.InitialDirectory)
         End If
