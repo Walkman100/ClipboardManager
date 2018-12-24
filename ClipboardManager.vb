@@ -148,6 +148,10 @@ Public Class ClipboardManager
         CheckButtons
     End Sub
     
+    Sub optAddToStart_CheckedChanged() Handles optAddToStart.CheckedChanged
+        SaveConfig()
+    End Sub
+    
     Private Sub chkMaxEntries_CheckedChanged() Handles chkMaxEntries.CheckedChanged
         grpMaxEntries.Enabled = chkMaxEntries.Checked
         SaveConfig()
@@ -157,12 +161,8 @@ Public Class ClipboardManager
         SaveConfig()
     End Sub
     
-    Sub optAddToStart_CheckedChanged() Handles optAddToStart.CheckedChanged
-        SaveConfig()
-    End Sub
-    
     Sub btnSaving_Click() Handles btnSaving.Click
-        SavingSettings.ShowDialog
+        SavingSettings.ShowDialog()
         If SavingSettings.chkContinuous.Checked Then
             If Not Exists(SavingSettings.txtContinuous.Text) Then Create(SavingSettings.txtContinuous.Text).Close
         End If
@@ -203,6 +203,7 @@ Public Class ClipboardManager
                 Else
                     lstLog.Items.Add(toReplace)
                 End If
+                WritePersistant()
             End If
         End If
         If chkMaxEntries.Checked Then
@@ -212,7 +213,6 @@ Public Class ClipboardManager
                 Loop
             End If
         End If
-        CheckButtons
     End Sub
     
     Sub ReadPersistant

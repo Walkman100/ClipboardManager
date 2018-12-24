@@ -112,8 +112,9 @@ Public Class SavingSettings
         Me.Controls.Add(Me.grpPersistant)
         Me.Controls.Add(Me.chkContinuous)
         Me.Controls.Add(Me.grpContinuous)
+        Me.Icon = Global.ClipboardManager.My.Resources.Resources.animationmanager
         Me.Name = "SavingSettings"
-        Me.ShowIcon = false
+        Me.ShowInTaskbar = false
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clipboard Saving Settings"
         Me.grpContinuous.ResumeLayout(false)
