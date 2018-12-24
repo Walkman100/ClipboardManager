@@ -1,33 +1,42 @@
 Imports System.IO.File
+Imports System.IO
+Imports System.Xml
 
 Public Class ClipboardManager
     Dim toReplace As String
     Dim tmpSelIndex As Integer
     
+    Dim configFileName As String = "ClipboardManager.xml"
+    Dim Friend configFilePath As String = ""
+    
     Private Sub ClipboardManager_Load() Handles MyBase.Load
-        TimerClipboardChecker.Start()
         lblVersion.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build
-        chkAutoSort.Checked = My.Settings.AutoSort
-        optAddToStart.Checked = My.Settings.AddNewItemsToStart
-        optAddToEnd.Checked = Not My.Settings.AddNewItemsToStart
-        If My.Settings.MaxEntries = 0 Then
-            txtMaxEntries.Value = 28
-            chkMaxEntries.Checked = False
+        
+        If Environment.GetEnvironmentVariable("OS") = "Windows_NT" Then
+            If Not       Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("AppData"), "WalkmanOSS")) Then
+                Directory.CreateDirectory(Path.Combine(Environment.GetEnvironmentVariable("AppData"), "WalkmanOSS"))
+            End If
+            configFilePath =              Path.Combine(Environment.GetEnvironmentVariable("AppData"), "WalkmanOSS", configFileName)
         Else
-            txtMaxEntries.Value = My.Settings.MaxEntries
-            chkMaxEntries.Checked = True
+            If Not       Directory.Exists(Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".config", "WalkmanOSS")) Then
+                Directory.CreateDirectory(Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".config", "WalkmanOSS"))
+            End If
+            configFilePath =              Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".config", "WalkmanOSS", configFileName)
         End If
-        If Not My.Settings.ContinuousStoragePath = "" Then
-            SavingSettings.txtContinuous.Text = My.Settings.ContinuousStoragePath
-            SavingSettings.chkContinuous.Checked = True
+        
+        If       File.Exists(Path.Combine(Application.StartupPath, configFileName)) Then
+            configFilePath = Path.Combine(Application.StartupPath, configFileName)
+        ElseIf File.Exists(configFileName) Then
+            configFilePath = (New IO.FileInfo(configFileName)).FullName
         End If
-        If Not My.Settings.PersistantStoragePath = "" Then
-            SavingSettings.txtPersistant.Text = My.Settings.PersistantStoragePath
-            SavingSettings.chkPersistant.Checked = True
-            ReadPersistant()
+        
+        If File.Exists(configFilePath) Then
+            ReadConfig()
         End If
+        
+        TimerClipboardChecker.Start()
     End Sub
-
+    
     Private Sub CheckButtons() Handles lstLog.SelectedIndexChanged
         If lstLog.SelectedIndex = -1 Then
             btnCopy.Enabled = False
@@ -132,31 +141,21 @@ Public Class ClipboardManager
 
     Private Sub chkAutoSort_CheckedChanged() Handles chkAutoSort.CheckedChanged
         lstLog.Sorted = chkAutoSort.Checked
-        My.Settings.AutoSort = chkAutoSort.Checked
-        My.Settings.Save
+        SaveConfig()
         CheckButtons
     End Sub
     
     Private Sub chkMaxEntries_CheckedChanged() Handles chkMaxEntries.CheckedChanged
         grpMaxEntries.Enabled = chkMaxEntries.Checked
-        If chkMaxEntries.Checked Then
-            My.Settings.MaxEntries = txtMaxEntries.Value
-        Else
-            My.Settings.MaxEntries = 0
-        End If
-        My.Settings.Save
+        SaveConfig()
     End Sub
     
     Sub txtMaxEntries_ValueChanged() Handles txtMaxEntries.ValueChanged
-        If chkMaxEntries.Checked Then
-            My.Settings.MaxEntries = txtMaxEntries.Value
-            My.Settings.Save
-        End If
+        SaveConfig()
     End Sub
     
     Sub optAddToStart_CheckedChanged() Handles optAddToStart.CheckedChanged
-        My.Settings.AddNewItemsToStart = optAddToStart.Checked
-        My.Settings.Save
+        SaveConfig()
     End Sub
     
     Sub btnSaving_Click() Handles btnSaving.Click
@@ -186,7 +185,6 @@ Public Class ClipboardManager
     End Sub
 
     Private Sub btnEnd_Click() Handles btnEnd.Click
-        My.Settings.Save
         Application.Exit()
     End Sub
 
@@ -230,5 +228,87 @@ Public Class ClipboardManager
                 AppendAllText(SavingSettings.txtPersistant.Text, item & vbNewLine)
             Next
         End If
+    End Sub
+    
+    Sub ReadConfig()
+        Dim reader As XmlReader = XmlReader.Create(configFilePath)
+        Try
+            reader.Read()
+        Catch ex As XmlException
+            reader.Close
+            Exit Sub
+        End Try
+        
+        If reader.IsStartElement() AndAlso reader.Name = "ClipboardManager" Then
+            If reader.Read AndAlso reader.IsStartElement() AndAlso reader.Name = "Settings" Then
+                While reader.read
+                    If reader.IsStartElement Then
+                        Select Case reader.Name
+                            Case "AutoSort"
+                                reader.Read
+                                If reader.Value = "True" Then chkAutoSort.Checked = True Else chkAutoSort.Checked = False
+                            Case "AddNewItemsToStart"
+                                reader.Read
+                                If reader.Value = "True" Then optAddToStart.Checked = True Else optAddToEnd.Checked = True
+                            Case "MaxEntriesEnabled"
+                                reader.Read
+                                If reader.Value = "True" Then chkMaxEntries.Checked = True Else chkMaxEntries.Checked = False
+                            Case "MaxEntries"
+                                reader.Read
+                                txtMaxEntries.Value = Decimal.Parse(reader.Value)
+                            Case "ContinuousStorageEnabled"
+                                reader.Read
+                                If reader.Value = "True" Then
+                                    SavingSettings.chkContinuous.Checked = True
+                                Else
+                                    SavingSettings.chkContinuous.Checked = False
+                                End If
+                            Case "ContinuousStoragePath"
+                                reader.Read
+                                SavingSettings.txtContinuous.Text = reader.Value
+                            Case "PersistantStorageEnabled"
+                                reader.Read
+                                If reader.Value = "True" Then
+                                    SavingSettings.chkPersistant.Checked = True
+                                Else
+                                    SavingSettings.chkPersistant.Checked = False
+                                End If
+                            Case "PersistantStoragePath"
+                                reader.Read
+                                SavingSettings.txtPersistant.Text = reader.Value
+                        End Select
+                    End If
+                End While
+            End If
+        End If
+        
+        reader.Close
+    End Sub
+    
+    Sub SaveConfig()
+        Dim XMLwSettings As New XmlWriterSettings()
+        XMLwSettings.Indent = True
+        Dim writer As XmlWriter = XmlWriter.Create(configFilePath, XMLwSettings)
+        
+        Try
+            writer.WriteStartDocument()
+            writer.WriteStartElement("ClipboardManager")
+            
+            writer.WriteStartElement("Settings")
+                writer.WriteElementString("AutoSort", chkAutoSort.Checked)
+                writer.WriteElementString("AddNewItemsToStart", optAddToStart.Checked)
+                writer.WriteElementString("MaxEntriesEnabled", chkMaxEntries.Checked)
+                writer.WriteElementString("MaxEntries", txtMaxEntries.Value)
+                writer.WriteElementString("ContinuousStorageEnabled", SavingSettings.chkContinuous.Checked)
+                writer.WriteElementString("ContinuousStoragePath", SavingSettings.txtContinuous.Text)
+                writer.WriteElementString("PersistantStorageEnabled", SavingSettings.chkPersistant.Checked)
+                writer.WriteElementString("PersistantStoragePath", SavingSettings.txtPersistant.Text)
+            writer.WriteEndElement()
+            
+            writer.WriteEndElement()
+            writer.WriteEndDocument()
+        Finally
+            writer.Close
+        End Try
     End Sub
 End Class

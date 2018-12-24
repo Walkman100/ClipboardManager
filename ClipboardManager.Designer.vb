@@ -206,10 +206,12 @@ Partial Class ClipboardManager
         'optAddToStart
         '
         Me.optAddToStart.AutoSize = true
+        Me.optAddToStart.Checked = true
         Me.optAddToStart.Location = New System.Drawing.Point(6, 19)
         Me.optAddToStart.Name = "optAddToStart"
         Me.optAddToStart.Size = New System.Drawing.Size(74, 17)
         Me.optAddToStart.TabIndex = 0
+        Me.optAddToStart.TabStop = true
         Me.optAddToStart.Text = "Start of list"
         Me.optAddToStart.UseVisualStyleBackColor = true
         '
@@ -217,7 +219,6 @@ Partial Class ClipboardManager
         '
         Me.grpMaxEntries.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpMaxEntries.Controls.Add(Me.txtMaxEntries)
-        Me.grpMaxEntries.Enabled = false
         Me.grpMaxEntries.Location = New System.Drawing.Point(314, 280)
         Me.grpMaxEntries.Name = "grpMaxEntries"
         Me.grpMaxEntries.Size = New System.Drawing.Size(105, 46)
@@ -233,11 +234,14 @@ Partial Class ClipboardManager
         Me.txtMaxEntries.Name = "txtMaxEntries"
         Me.txtMaxEntries.Size = New System.Drawing.Size(93, 20)
         Me.txtMaxEntries.TabIndex = 0
+        Me.txtMaxEntries.Value = New Decimal(New Integer() {28, 0, 0, 0})
         '
         'chkMaxEntries
         '
         Me.chkMaxEntries.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.chkMaxEntries.AutoSize = true
+        Me.chkMaxEntries.Checked = true
+        Me.chkMaxEntries.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkMaxEntries.Location = New System.Drawing.Point(318, 279)
         Me.chkMaxEntries.Name = "chkMaxEntries"
         Me.chkMaxEntries.Size = New System.Drawing.Size(84, 17)
