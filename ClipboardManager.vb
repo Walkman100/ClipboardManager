@@ -268,7 +268,7 @@ Public Class ClipboardManager
                                 End If
                             Case "ContinuousStoragePath"
                                 reader.Read
-                                SavingSettings.txtContinuous.Text = reader.Value
+                                If Not String.IsNullOrWhiteSpace(reader.Value) Then SavingSettings.txtContinuous.Text = reader.Value
                             Case "PersistantStorageEnabled"
                                 reader.Read
                                 If reader.Value = "True" Then
@@ -278,7 +278,7 @@ Public Class ClipboardManager
                                 End If
                             Case "PersistantStoragePath"
                                 reader.Read
-                                SavingSettings.txtPersistant.Text = reader.Value
+                                If Not String.IsNullOrWhiteSpace(reader.Value) Then SavingSettings.txtPersistant.Text = reader.Value
                         End Select
                     End If
                 End While

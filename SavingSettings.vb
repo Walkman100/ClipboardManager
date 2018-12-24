@@ -136,7 +136,8 @@ Public Class SavingSettings
     
     Sub chkContinuous_CheckedChanged() Handles chkContinuous.CheckedChanged
         grpContinuous.Enabled = chkContinuous.Checked
-        If chkContinuous.Checked And txtContinuous.Text = "" Then btnContinous_Click
+        If chkContinuous.Checked And txtContinuous.Text = "" And Me.Created Then btnContinous_Click
+        ClipboardManager.SaveConfig()
     End Sub
     
     Sub btnContinous_Click() Handles btnContinous.Click
@@ -149,11 +150,13 @@ Public Class SavingSettings
         ElseIf txtContinuous.Text = ""
             chkContinuous.Checked = False
         End If
+        ClipboardManager.SaveConfig()
     End Sub
     
     Sub chkPersistant_CheckedChanged() Handles chkPersistant.CheckedChanged
         grpPersistant.Enabled = chkPersistant.Checked
-        If chkPersistant.Checked And txtPersistant.Text = "" Then btnPersistant_Click
+        If chkPersistant.Checked And txtPersistant.Text = "" And Me.Created Then btnPersistant_Click
+        ClipboardManager.SaveConfig()
     End Sub
     
     Sub btnPersistant_Click() Handles btnPersistant.Click
@@ -166,5 +169,6 @@ Public Class SavingSettings
         ElseIf txtPersistant.Text = ""
             chkPersistant.Checked = False
         End If
+        ClipboardManager.SaveConfig()
     End Sub
 End Class
