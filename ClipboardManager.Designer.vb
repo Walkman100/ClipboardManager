@@ -234,7 +234,7 @@ Partial Class ClipboardManager
         Me.txtMaxEntries.Name = "txtMaxEntries"
         Me.txtMaxEntries.Size = New System.Drawing.Size(93, 20)
         Me.txtMaxEntries.TabIndex = 0
-        Me.txtMaxEntries.Value = New Decimal(New Integer() {28, 0, 0, 0})
+        Me.txtMaxEntries.Value = New Decimal(New Integer() {30, 0, 0, 0})
         '
         'chkMaxEntries
         '

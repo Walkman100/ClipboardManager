@@ -32,6 +32,10 @@ Public Class ClipboardManager
             ReadConfig()
         End If
         
+        If SavingSettings.chkPersistant.Checked = True Then
+            ReadPersistant()
+        End If
+        
         safeToSave = True
         
         TimerClipboardChecker.Start()
