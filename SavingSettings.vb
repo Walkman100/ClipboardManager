@@ -94,14 +94,14 @@ Public Class SavingSettings
         Me.sfdContinuous.DefaultExt = "txt"
         Me.sfdContinuous.FileName = "ClipboardManager.ClipboardLog.txt"
         Me.sfdContinuous.Filter = "Text files|*.txt|All files|*.*"
-        Me.sfdContinuous.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
+        Me.sfdContinuous.InitialDirectory = System.Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
         Me.sfdContinuous.OverwritePrompt = false
         Me.sfdContinuous.Title = "Select a file to save the clipboard to:"
         'sfdPersistant
         Me.sfdPersistant.DefaultExt = "txt"
         Me.sfdPersistant.FileName = "ClipboardManager.CurrentList.txt"
         Me.sfdPersistant.Filter = "Text files|*.txt|All files|*.*"
-        Me.sfdPersistant.InitialDirectory = Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
+        Me.sfdPersistant.InitialDirectory = System.Environment.GetEnvironmentVariable("AppData") & "\WalkmanOSS"
         Me.sfdPersistant.OverwritePrompt = false
         Me.sfdPersistant.Title = "Select a file to keep up-to-date with ClipboardManager:"
         'SavingSettings
@@ -143,6 +143,7 @@ Public Class SavingSettings
         If Not IO.Directory.Exists(sfdContinuous.InitialDirectory) Then
             IO.Directory.CreateDirectory(sfdContinuous.InitialDirectory)
         End If
+        
         If sfdContinuous.ShowDialog = DialogResult.OK Then
             txtContinuous.Text = sfdContinuous.FileName
         ElseIf txtContinuous.Text = ""
@@ -159,6 +160,7 @@ Public Class SavingSettings
         If Not IO.Directory.Exists(sfdPersistant.InitialDirectory) Then
             IO.Directory.CreateDirectory(sfdPersistant.InitialDirectory)
         End If
+        
         If sfdPersistant.ShowDialog = DialogResult.OK Then
             txtPersistant.Text = sfdPersistant.FileName
         ElseIf txtPersistant.Text = ""
