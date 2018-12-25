@@ -220,7 +220,7 @@ Public Class ClipboardManager
     End Sub
     
     Sub ReadPersistant
-        If SavingSettings.chkPersistant.Checked Then
+        If SavingSettings.chkPersistant.Checked And Exists(SavingSettings.txtPersistant.Text) Then
             lstLog.Items.Clear
             For Each item In IO.File.ReadAllLines(SavingSettings.txtPersistant.Text)
                 lstLog.Items.Add(item)

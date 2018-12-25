@@ -33,3 +33,6 @@ and with an item selected:
 [![ClipboardManager LinuxMono with an item selected][LinuxMono ItemSelected]][LinuxMono ItemSelected]
 
   [LinuxMono ItemSelected]: http://walkman100.github.io/images/Screenshots/My_Projects/ClipboardProjects/ManagerLinuxMonoItemSelected.png
+
+## Compile requirements
+See [CompileInstructions.md](https://github.com/Walkman100/gists/blob/master/CompileInstructions.md)
