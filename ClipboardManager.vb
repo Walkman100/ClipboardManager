@@ -2,10 +2,14 @@ Imports System.IO.File
 Imports System.IO
 Imports System.Xml
 
-Public Class ClipboardManager
+Public Partial Class ClipboardManager
     Dim configFileName As String = "ClipboardManager.xml"
     Dim Friend configFilePath As String = ""
     Dim safeToSave As Boolean = False
+    
+    Public Sub New()
+        Me.InitializeComponent()
+    End Sub
     
     Private Sub ClipboardManager_Load() Handles MyBase.Load
         lblVersion.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build

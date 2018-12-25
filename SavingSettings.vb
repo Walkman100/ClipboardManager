@@ -112,7 +112,12 @@ Public Class SavingSettings
         Me.Controls.Add(Me.grpPersistant)
         Me.Controls.Add(Me.chkContinuous)
         Me.Controls.Add(Me.grpContinuous)
-        Me.Icon = Global.ClipboardManager.My.Resources.Resources.animationmanager
+        
+        Me.Icon = Resources.animationmanager
+        ' change to:
+        ' Me.Icon = Global.ClipboardManager.Resources.animationmanager
+        ' for the designer to load
+        
         Me.Name = "SavingSettings"
         Me.ShowInTaskbar = false
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
