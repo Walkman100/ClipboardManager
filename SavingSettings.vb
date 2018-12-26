@@ -13,7 +13,7 @@ Public Class SavingSettings
     Private Sub InitializeComponent()
         Me.chkContinuous = New System.Windows.Forms.CheckBox()
         Me.grpContinuous = New System.Windows.Forms.GroupBox()
-        Me.btnContinous = New System.Windows.Forms.Button()
+        Me.btnContinuous = New System.Windows.Forms.Button()
         Me.txtContinuous = New System.Windows.Forms.TextBox()
         Me.chkPersistant = New System.Windows.Forms.CheckBox()
         Me.grpPersistant = New System.Windows.Forms.GroupBox()
@@ -34,7 +34,7 @@ Public Class SavingSettings
         Me.chkContinuous.UseVisualStyleBackColor = true
         'grpContinuous
         Me.grpContinuous.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.grpContinuous.Controls.Add(Me.btnContinous)
+        Me.grpContinuous.Controls.Add(Me.btnContinuous)
         Me.grpContinuous.Controls.Add(Me.txtContinuous)
         Me.grpContinuous.Enabled = false
         Me.grpContinuous.Location = New System.Drawing.Point(12, 12)
@@ -43,13 +43,13 @@ Public Class SavingSettings
         Me.grpContinuous.TabIndex = 14
         Me.grpContinuous.TabStop = false
         'btnContinous
-        Me.btnContinous.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnContinous.Location = New System.Drawing.Point(292, 20)
-        Me.btnContinous.Name = "btnContinous"
-        Me.btnContinous.Size = New System.Drawing.Size(75, 23)
-        Me.btnContinous.TabIndex = 1
-        Me.btnContinous.Text = "Browse..."
-        Me.btnContinous.UseVisualStyleBackColor = true
+        Me.btnContinuous.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnContinuous.Location = New System.Drawing.Point(292, 20)
+        Me.btnContinuous.Name = "btnContinous"
+        Me.btnContinuous.Size = New System.Drawing.Size(75, 23)
+        Me.btnContinuous.TabIndex = 1
+        Me.btnContinuous.Text = "Browse..."
+        Me.btnContinuous.UseVisualStyleBackColor = true
         'txtContinuous
         Me.txtContinuous.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtContinuous.Location = New System.Drawing.Point(6, 22)
@@ -132,7 +132,7 @@ Public Class SavingSettings
     Friend txtPersistant As System.Windows.Forms.TextBox
     Private WithEvents btnPersistant As System.Windows.Forms.Button
     Friend txtContinuous As System.Windows.Forms.TextBox
-    Private WithEvents btnContinous As System.Windows.Forms.Button
+    Private WithEvents btnContinuous As System.Windows.Forms.Button
     Private grpPersistant As System.Windows.Forms.GroupBox
     Friend WithEvents chkPersistant As System.Windows.Forms.CheckBox
     Private grpContinuous As System.Windows.Forms.GroupBox
@@ -146,7 +146,7 @@ Public Class SavingSettings
         ClipboardManager.SaveConfig()
     End Sub
     
-    Sub btnContinous_Click() Handles btnContinous.Click
+    Sub btnContinous_Click() Handles btnContinuous.Click
         If Not IO.Directory.Exists(sfdContinuous.InitialDirectory) Then
             IO.Directory.CreateDirectory(sfdContinuous.InitialDirectory)
         End If

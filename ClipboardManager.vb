@@ -248,9 +248,9 @@ Public Partial Class ClipboardManager
             End If
         End If
         If chkMaxEntries.Checked Then
-            If lstLog.Items.Count > txtMaxEntries.Text Then
-                Do Until lstLog.Items.Count <= txtMaxEntries.Text
-                    lstLog.Items.RemoveAt(txtMaxEntries.Text)
+            If lstLog.Items.Count > txtMaxEntries.Value Then
+                Do Until lstLog.Items.Count <= txtMaxEntries.Value
+                    lstLog.Items.RemoveAt(txtMaxEntries.Value)
                 Loop
             End If
         End If
