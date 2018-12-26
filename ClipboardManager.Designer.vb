@@ -48,6 +48,7 @@ Partial Class ClipboardManager
         Me.btnLaunch = New System.Windows.Forms.Button()
         Me.btnSaving = New System.Windows.Forms.Button()
         Me.lblVersion = New System.Windows.Forms.Label()
+        Me.btnLoadContinuous = New System.Windows.Forms.Button()
         Me.grpAddTo.SuspendLayout
         Me.grpMaxEntries.SuspendLayout
         CType(Me.txtMaxEntries,System.ComponentModel.ISupportInitialize).BeginInit
@@ -65,7 +66,7 @@ Partial Class ClipboardManager
         Me.lstLog.Location = New System.Drawing.Point(12, 25)
         Me.lstLog.Name = "lstLog"
         Me.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstLog.Size = New System.Drawing.Size(296, 417)
+        Me.lstLog.Size = New System.Drawing.Size(296, 446)
         Me.lstLog.TabIndex = 0
         '
         'lblRecent
@@ -124,7 +125,7 @@ Partial Class ClipboardManager
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(314, 390)
+        Me.btnClear.Location = New System.Drawing.Point(314, 419)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(100, 23)
         Me.btnClear.TabIndex = 9
@@ -157,7 +158,7 @@ Partial Class ClipboardManager
         '
         Me.btnEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnEnd.Location = New System.Drawing.Point(314, 419)
+        Me.btnEnd.Location = New System.Drawing.Point(314, 448)
         Me.btnEnd.Name = "btnEnd"
         Me.btnEnd.Size = New System.Drawing.Size(100, 23)
         Me.btnEnd.TabIndex = 10
@@ -172,7 +173,7 @@ Partial Class ClipboardManager
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnHide.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnHide.Location = New System.Drawing.Point(314, 361)
+        Me.btnHide.Location = New System.Drawing.Point(314, 390)
         Me.btnHide.Name = "btnHide"
         Me.btnHide.Size = New System.Drawing.Size(100, 23)
         Me.btnHide.TabIndex = 8
@@ -278,11 +279,21 @@ Partial Class ClipboardManager
         Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.lblVersion.AutoSize = true
         Me.lblVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 6!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.lblVersion.Location = New System.Drawing.Point(404, 444)
+        Me.lblVersion.Location = New System.Drawing.Point(404, 473)
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.Size = New System.Drawing.Size(21, 9)
         Me.lblVersion.TabIndex = 16
         Me.lblVersion.Text = "1.0.0"
+        '
+        'btnLoadContinuous
+        '
+        Me.btnLoadContinuous.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnLoadContinuous.Location = New System.Drawing.Point(314, 361)
+        Me.btnLoadContinuous.Name = "btnLoadContinuous"
+        Me.btnLoadContinuous.Size = New System.Drawing.Size(100, 23)
+        Me.btnLoadContinuous.TabIndex = 17
+        Me.btnLoadContinuous.Text = "Load From Log..."
+        Me.btnLoadContinuous.UseVisualStyleBackColor = true
         '
         'ClipboardManager
         '
@@ -290,7 +301,8 @@ Partial Class ClipboardManager
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnHide
-        Me.ClientSize = New System.Drawing.Size(426, 454)
+        Me.ClientSize = New System.Drawing.Size(426, 483)
+        Me.Controls.Add(Me.btnLoadContinuous)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.btnSaving)
         Me.Controls.Add(Me.btnLaunch)
@@ -320,6 +332,7 @@ Partial Class ClipboardManager
         Me.ResumeLayout(false)
         Me.PerformLayout
     End Sub
+    Private WithEvents btnLoadContinuous As System.Windows.Forms.Button
     Private lblVersion As System.Windows.Forms.Label
     Friend WithEvents btnSaving As System.Windows.Forms.Button
     Friend WithEvents btnLaunch As System.Windows.Forms.Button

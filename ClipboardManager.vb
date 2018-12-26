@@ -180,6 +180,39 @@ Public Partial Class ClipboardManager
         End If
     End Sub
     
+    Sub btnLoadContinuous_Click() Handles btnLoadContinuous.Click
+        If SavingSettings.txtContinuous.Text = "" Then
+            MsgBox("Log file path is empty! Set the Continuous Saving file in ""Saving options"" first.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+        
+        If Not Exists(SavingSettings.txtContinuous.Text) Then
+            MsgBox("Log file does not exist! Set the Continuous Saving file in ""Saving options"" to an existing file first.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+        
+        If New FileInfo(SavingSettings.txtContinuous.Text).Length = 0 Then
+            MsgBox("Log file is empty! Copy some text or set the Continuous Saving file in ""Saving options"" to an existing file first.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+        
+        Dim clipboardLog = ReadAllLines(SavingSettings.txtContinuous.Text)
+        
+        Array.Reverse(clipboardLog)
+        
+        If lstLog.Items.Count = txtMaxEntries.Value Then
+            If MsgBox("Current list is full! Replace list with previous log?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                lstLog.Items.Clear()
+            End If
+        End If
+        
+        Dim i As Integer = 0
+        Do Until lstLog.Items.Count >= txtMaxEntries.Value
+            lstLog.Items.Add(clipboardLog(i))
+            i += 1
+        Loop
+    End Sub
+    
     Private Sub btnHide_Click() Handles btnHide.Click
         Me.Hide()
         TrayIcon.Visible = True
