@@ -13,7 +13,7 @@ Imports System.Runtime.InteropServices
 <assembly: AssemblyConfiguration("")>
 <assembly: AssemblyCompany("WalkmanOSS")>
 <assembly: AssemblyProduct("ClipboardManager")>
-<assembly: AssemblyCopyright("FOSS from Walkman 2014-18")>
+<assembly: AssemblyCopyright("FOSS from Walkman 2014-21")>
 <assembly: AssemblyTrademark("")>
 <assembly: AssemblyCulture("")>
 
